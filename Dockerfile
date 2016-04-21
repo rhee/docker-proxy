@@ -13,7 +13,7 @@ EXPOSE 9050
 # log, cache, etc
 VOLUME [ "/opt/proxy/var","/opt/proxy/etc" ]
 
-ADD opt-proxy-20160416.tar.gz /
+ADD opt-proxy-20160421.tar.gz /
 ADD start.sh /
 
 RUN yum -y install libevent libpcre libssh

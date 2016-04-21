@@ -9,8 +9,9 @@ done
 /opt/proxy/bin/polipo -c /opt/proxy/etc/polipo/config &
 /opt/proxy/bin/ratproxy -p 5555 -v /opt/proxy/var/log/ratproxy -w /opt/proxy/var/log/ratproxy/log.txt -r -lfscm &
 
+/opt/proxy/bin/tail-decode.sh &
+
 exec tail -F \
 /opt/proxy/var/log/polipo/polipo.log \
 /opt/proxy/var/log/tor/tor.log \
-/opt/proxy/var/log/privoxy/logfile \
-/opt/proxy/var/log/ratproxy/log.txt 1>&2
+/opt/proxy/var/log/privoxy/logfile 1>&2
