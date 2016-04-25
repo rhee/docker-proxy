@@ -9,7 +9,6 @@ build:	.FORCE
 run:	.FORCE
 	docker run --name=proxy \
 		--restart=unless-stopped \
-                --net=host \
 		-p 8118:8118 \
 		-p 8123:8123 \
 		-p 9050:9050 \
