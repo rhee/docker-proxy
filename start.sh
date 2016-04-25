@@ -9,12 +9,13 @@ SocksPort 9050
 ControlPort 9051
 SocksListenAddress 0.0.0.0
 Log notice file /opt/proxy/var/log/tor/tor.log
-RunAsDaemon 0
+RunAsDaemon 1
 ExcludeNodes {kr},{cn}
 HashedControlPassword 16:58559D2611103DF26020C6011A00E4A5FA50B16D2B550EB69DD6958744
 EOF
 
-nohup sh -c 'while :; /opt/proxy/bin/tor -f /opt/proxy/etc/tor/torrc ; sleep 5 ; done' &
+#nohup sh -c 'while :; /opt/proxy/bin/tor -f /opt/proxy/etc/tor/torrc ; sleep 5 ; done' &
+nohup /opt/proxy/bin/tor -f /opt/proxy/etc/tor/torrc &
 
 cat <<EOF > /opt/proxy/etc/privoxy/config
 user-manual /usr/share/doc/privoxy/user-manual
