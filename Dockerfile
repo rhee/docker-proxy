@@ -16,7 +16,7 @@ VOLUME [ "/opt/proxy/var","/opt/proxy/etc" ]
 ADD opt-proxy-20160421.tar.gz /
 ADD start.sh /
 
-RUN yum -y install libevent libpcre libssh
+RUN yum update -y -q ; yum -y -q install libevent libpcre libssh
 
 ENV PATH=/opt/proxy/bin:$PATH
 

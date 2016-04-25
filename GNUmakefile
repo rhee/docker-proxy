@@ -26,7 +26,10 @@ $$IMAGE
 
 rm:
 	-docker rm -f $$CONTAINER
-	-@VBoxManage controlvm default natpf1 delete tcp-8000
+	-@VBoxManage controlvm default natpf1 delete tcp-8118
+	-@VBoxManage controlvm default natpf1 delete tcp-8123
+	-@VBoxManage controlvm default natpf1 delete tcp-9050
+	-@VBoxManage controlvm default natpf1 delete tcp-5555
 
 logs:
 	docker logs --follow $$CONTAINER
