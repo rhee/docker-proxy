@@ -1,4 +1,4 @@
-fFROM centos:7
+FROM centos:7
 MAINTAINER shr386.docker@outlook.com
 
 RUN yum update -y -q ; yum -y -q install libevent libpcre libssh
