@@ -9,14 +9,15 @@ build:
 
 #--net=host
 #-u $$(id -u):$$(id -g)
+#-p 8118:8118 \
+#-p 8123:8123 \
+#-p 9050:9050 \
+#-p 5555:5555 \
 
 run:	nat
 	-docker run --name=$$CONTAINER \
 --restart=unless-stopped \
--p 8118:8118 \
--p 8123:8123 \
--p 9050:9050 \
--p 5555:5555 \
+--net=host \
 -v /tmp/proxy:/opt/proxy/var \
 -d \
 $$IMAGE
