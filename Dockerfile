@@ -6,8 +6,11 @@ RUN yum update -y -q ; yum -y -q install libevent libpcre libssh
 #ADD https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64.deb /
 #RUN dpkg -i dumb-init_1.0.1_amd64.deb
 
-ADD https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64 /usr/local/bin/dumb-init
-RUN chmod +x /usr/local/bin/dumb-init
+#ADD https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64 /usr/local/bin/dumb-init
+#RUN chmod +x /usr/local/bin/dumb-init
+
+COPY dumb-init_1.0.1_amd64 /dumb-init
+RUN chmod +x /dumb-init
 
 ADD opt-proxy-20160421.tar.gz /
 COPY start.sh /
@@ -29,4 +32,4 @@ WORKDIR /opt/proxy/bin
 #ENTRYPOINT [ "/bin/sh" ]
 #CMD [ "/start.sh" ]
 
-CMD [ "/usr/local/bin/dumb-init", "/start.sh" ]
+CMD [ "/dumb-init", "/start.sh" ]
