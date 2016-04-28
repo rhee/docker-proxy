@@ -3,12 +3,7 @@ MAINTAINER shr386.docker@outlook.com
 
 RUN yum update -y -q ; yum -y -q install libevent libpcre libssh
 
-#ADD https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64.deb /
-#RUN dpkg -i dumb-init_1.0.1_amd64.deb
-
-#ADD https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64 /usr/local/bin/dumb-init
-#RUN chmod +x /usr/local/bin/dumb-init
-
+###ADD https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64 /dumb-init
 COPY dumb-init_1.0.1_amd64 /dumb-init
 RUN chmod +x /dumb-init
 
@@ -28,8 +23,5 @@ VOLUME [ "/opt/proxy/var","/opt/proxy/etc" ]
 
 # go to where keyfile.pem placed
 WORKDIR /opt/proxy/bin
-
-#ENTRYPOINT [ "/bin/sh" ]
-#CMD [ "/start.sh" ]
 
 CMD [ "/dumb-init", "/start.sh" ]

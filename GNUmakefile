@@ -2,40 +2,44 @@
 
 export CONTAINER=proxy
 export IMAGE=rhee/proxy
-#export PORTS="8118 8123 9050 5555"
+export PORTS="8118 8123 9050 5555"
 
 build:
 	docker build -t $$IMAGE .
 
 #--net=host
 #-u $$(id -u):$$(id -g)
-#-p 8118:8118 \
-#-p 8123:8123 \
-#-p 9050:9050 \
-#-p 5555:5555 \
+#-p 8118:8118
+#-p 8123:8123
+#-p 9050:9050
+#-p 5555:5555
 
 run:	nat
 	-docker run --name=$$CONTAINER \
---restart=unless-stopped \
---net=host \
--v /tmp/proxy:/opt/proxy/var \
--d \
-$$IMAGE
+  --restart=unless-stopped \
+  --net=host \
+  -v /tmp/proxy:/opt/proxy/var \
+  -d \
+  $$IMAGE
 
 rm:	unnat
 	-docker rm -f $$CONTAINER
 
 nat:
-	-VBoxManage controlvm default natpf1 tcp-8118,tcp,,8118,,8118
-	-VBoxManage controlvm default natpf1 tcp-8123,tcp,,8123,,8123
-	-VBoxManage controlvm default natpf1 tcp-9050,tcp,,9050,,9050
-	-VBoxManage controlvm default natpf1 tcp-5555,tcp,,5555,,5555
+	-if [ ! -z "$$DOCKER_MACHINE_NAME" ]; \
+then \
+  for port in $$PORTS; do \
+    VBoxManage controlvm default natpf1 tcp-$$port,tcp,,$$port,,$$port; \
+  done; \
+fi
 
 unnat:
-	-VBoxManage controlvm default natpf1 delete tcp-8118
-	-VBoxManage controlvm default natpf1 delete tcp-8123
-	-VBoxManage controlvm default natpf1 delete tcp-9050
-	-VBoxManage controlvm default natpf1 delete tcp-5555
+	-if [ ! -z "$$DOCKER_MACHINE_NAME" ]; \
+then \
+  for port in $$PORTS; do \
+    VBoxManage controlvm default natpf1 delete tcp-$$port; \
+  done; \
+fi
 
 logs:
 	docker logs --follow $$CONTAINER
