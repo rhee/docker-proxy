@@ -1,10 +1,15 @@
 #!/usr/bin/make
 
+MAKEFILE:=$(lastword $(MAKEFILE_LIST))
+
 export CONTAINER=proxy
 export IMAGE=rhee/proxy
 export PORTS="8118 8123 9050 5555"
 
 build:
+	$(MAKE) -f $(MAKEFILE) _build 2>&1 | tee -a build.log.txt
+
+_build:
 	mkdir -p out
 	docker build -t $$IMAGE-builder src
 	docker run --name=$$CONTAINER-builder --rm \
@@ -55,4 +60,4 @@ logs:
 bash:
 	docker exec -ti $$CONTAINER bash
 
-.PHONY:	build run rm logs bash
+.PHONY:	build _build run rm logs bash
