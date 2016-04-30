@@ -8,4 +8,4 @@
 
 ( cd ratproxy-1.58/ratproxy ; sh ../../40-build-ratproxy.sh )
 
-mar cvzf /out/_opt-proxy.tar.gz -C / opt/proxy/bin opt/proxy/etc opt/proxy/sbin opt/proxy/share/tor
+tar cvzf /out/_opt-proxy.tar.gz -C / opt/proxy/bin opt/proxy/etc opt/proxy/sbin opt/proxy/share/tor
