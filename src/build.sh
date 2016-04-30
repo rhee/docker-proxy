@@ -1,6 +1,6 @@
 #!/bin/sh
 
-( cd polipo-1.0.4.1 ; sh ../10-build-polipo.sh )
+( cd polipo-1.1.1 ; sh ../10-build-polipo.sh )
 
 ( cd privoxy-3.0.19-stable ; sh ../20-build-privoxy.sh )
 

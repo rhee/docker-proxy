@@ -1,0 +1,76 @@
+diff -urN ratproxy.orig/Makefile ratproxy/Makefile
+--- ratproxy.orig/Makefile	2008-06-10 20:44:28.000000000 +0900
++++ ratproxy/Makefile	2016-04-04 22:04:10.186844538 +0900
+@@ -20,7 +20,7 @@
+ #
+ 
+ PROGNAME = ratproxy
+-CFLAGS	 = -Wall -O3 -Wno-pointer-sign -D_GNU_SOURCE
++CFLAGS	 = -Wall -O3 -fno-strict-aliasing -Wno-pointer-sign -D_GNU_SOURCE
+ LDFLAGS  = -lcrypto -lssl
+ 
+ all: $(PROGNAME) flare-check
+Binary files ratproxy.orig/ratproxy and ratproxy/ratproxy differ
+diff -urN ratproxy.orig/ssl.c ratproxy/ssl.c
+--- ratproxy.orig/ssl.c	2008-06-09 08:07:13.000000000 +0900
++++ ratproxy/ssl.c	2016-04-04 22:04:10.190844538 +0900
+@@ -63,6 +63,8 @@
+   if (init_ok) fatal("ssl_setup() called twice");
+   init_ok = 1;
+ 
++  //debug("ssl_setup(): init_ok=1 now\n");
++
+   if (socketpair(AF_UNIX,SOCK_STREAM,0,p)) pfatal("socketpair() failed");
+ 
+   ssl_cli_tap = p[0];
+@@ -83,6 +85,8 @@
+   if (init_ok != 2) fatal("ssl_shutdown() called prior to ssl_start()");
+   init_ok = 0;
+ 
++  //debug("ssl_shutdown(): init_ok=0 now\n");
++
+   if (ssl_pid > 0) {
+     ssl_pid = 0;
+     close(ssl_cli_tap);
+@@ -98,6 +102,7 @@
+ #define ssl_fatal(reason,err) do { \
+     if (init_ok == 2) \
+       ERR_print_errors(err); \
++      ERR_print_errors_fp(stderr); \
+     fatal("%s", reason); \
+   } while (1)
+ 
+@@ -110,9 +115,13 @@
+   _s32 i;
+   _u8 no_client = (cli_fd < 0);
+ 
++  int r;
++
+   if (!init_ok || init_ok == 2) fatal("ssl_start() called out of order");
+   init_ok = 2;
+ 
++  //debug("ssl_start(): init_ok=2 now\n");
++
+   ssl_pid = fork();
+ 
+   if (ssl_pid < 0) pfatal("fork() failed");
+@@ -155,11 +164,17 @@
+   if (!srv_ssl || !cli_ssl) ssl_fatal("unable to create SSL objects", err);
+ 
+   SSL_set_fd(srv_ssl, srv_fd);
+-  if (SSL_connect(srv_ssl) != 1) ssl_fatal("server SSL handshake failed", err);
++  if (SSL_connect(srv_ssl) != 1) ssl_fatal("server SSL handshake (connect) failed", err);
+ 
+   if (!no_client) {
+     SSL_set_fd(cli_ssl, cli_fd);
+-    if (SSL_accept(cli_ssl) != 1) ssl_fatal("client SSL handshake failed", err);
++    if ((r=SSL_accept(cli_ssl)) != 1){
++        {
++            int s = SSL_get_error(cli_ssl,r);
++            debug("DEBUG: SSL_get_error(cli_ssl,%d)=%d errno=%d\n",r,s,errno);
++        }
++        ssl_fatal("client SSL handshake (accept) failed", err);
++    }
+   }
+ 
+   while (1) {

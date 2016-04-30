@@ -1,0 +1,69 @@
+user-manual /usr/share/doc/privoxy/user-manual
+confdir /usr/local/etc/privoxy
+logdir /var/log/privoxy
+actionsfile match-all.action # Actions that are applied to all sites and maybe overruled later on.
+actionsfile default.action   # Main actions file
+actionsfile user.action      # User customizations
+filterfile default.filter
+logfile logfile
+listen-address  10.0.0.5:8118
+toggle  1
+enable-remote-toggle  0
+enable-remote-http-toggle  0
+enable-edit-actions 0
+enforce-blocks 0
+buffer-limit 4096
+forwarded-connect-retries  0
+accept-intercepted-requests 0
+allow-cgi-request-crunching 0
+split-large-forms 0
+keep-alive-timeout 300
+socket-timeout 300
+
+#forward-socks4a	        /		10.0.0.5:9050 .
+forward		/		127.0.0.1:8123
+#forward-socks4a	.somewhere.blocked/		10.0.0.5:9050 .
+#forward		.somewhere.blocked/		127.0.0.1:8123
+
+forward         192.168.*.*/     .  
+forward         10.*.*.*/        .  
+forward         127.*.*.*/       .
+forward         localhost/     .
+forward         .local/       	.
+forward         mstubu/       	.
+
+forward         .websync.co.kr/       .
+forward         .safe4kid.co.kr/      .
+forward         .safe4kid.com/        .
+
+forward         .apple.com/       .
+
+#forward         www.google.com/     .  
+#forward         www.google.co.kr/     .  
+
+#forward        .google.com/     .  
+#forward        .google.co.kr/     .  
+#forward        .gmail.com/        .  
+#forward        .googleapis.com/        .  
+#forward        .flickr.com/        .  
+#forward        .yimg.com/        .  
+
+#forward	.facebook.com/	.
+#forward	.fbcdn.net/	.
+
+#forward	.twitter.com/	.
+#forward	.twimg.com/	.
+
+#forward        .hotmail.com/       .
+#forward        .microsoft.com/       .
+#forward        .opera.com/       .
+#forward	.hootsuite.com/	.
+
+#forward         .kr/       .
+#forward         .jp/       .
+#forward         .us/       .
+#forward         .net/       .
+#forward         .com/       .
+#forward         .edu/       .
+#forward         .org/       .
+
