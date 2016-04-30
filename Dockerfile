@@ -7,7 +7,7 @@ RUN yum update -y -q ; yum -y -q install libevent libpcre libssh
 COPY dumb-init_1.0.1_amd64 /dumb-init
 RUN chmod +x /dumb-init
 
-ADD out/__opt-proxy__.tar.gz /
+ADD out/_opt-proxy.tar.gz /
 COPY start.sh /
 
 ENV PATH=/opt/proxy/bin:$PATH

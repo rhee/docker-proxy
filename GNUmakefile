@@ -7,10 +7,10 @@ export IMAGE=rhee/proxy
 export PORTS="8118 8123 9050 5555"
 
 build:
-	$(MAKE) -f $(MAKEFILE) _build 2>&1 | tee -a build.log.txt
+	$(MAKE) -f $(MAKEFILE) _build 2>&1 | tee -a build.log
 
 _build:
-	mkdir -p out
+	mkdir -p out opt
 	docker build -t $$IMAGE-builder src
 	docker run --name=$$CONTAINER-builder --rm \
 		-u $$(id -u):$$(id -g) \
@@ -22,18 +22,17 @@ _build:
 
 #--net=host
 #-u $$(id -u):$$(id -g)
-#-p 8118:8118
-#-p 8123:8123
-#-p 9050:9050
-#-p 5555:5555
 
 run:	nat
 	-docker run --name=$$CONTAINER \
-  --restart=unless-stopped \
-  --net=host \
-  -v /tmp/proxy:/opt/proxy/var \
-  -d \
-  $$IMAGE
+	    --restart=unless-stopped \
+	    -p 8118:8118 \
+	    -p 8123:8123 \
+	    -p 9050:9050 \
+	    -p 5555:5555 \
+	    -v /tmp/proxy:/opt/proxy/var \
+	    -d \
+	    $$IMAGE
 
 rm:	unnat
 	-docker rm -f $$CONTAINER
