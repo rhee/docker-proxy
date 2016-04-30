@@ -5,6 +5,14 @@ export IMAGE=rhee/proxy
 export PORTS="8118 8123 9050 5555"
 
 build:
+	mkdir -p out
+	docker build -t $$IMAGE-builder src
+	docker run --name=$$CONTAINER-builder --rm \
+		-u $$(id -u):$$(id -g) \
+		-v $$PWD/out:/out \
+		-v $$PWD/opt:/opt \
+		-v $$PWD/src:/src \
+		$$IMAGE-builder
 	docker build -t $$IMAGE .
 
 #--net=host
