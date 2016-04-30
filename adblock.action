@@ -1,0 +1,938 @@
+{ -block{safe4kid} }
+.safe4kid.co.kr/
+
+{ +block{notorious ad hosts from https://docs.google.com/file/d/0B0M1ErKyBLhgZF81TDJXZDFWT1E/edit?pli=1} }
+
+/AdBridgeServer/				# XXX shr
+/PubAd.svc/					# XXX shr
+173.204.162.48/					# XXX shr
+.cauly.co.kr/					# XXX shr
+.adtc.daum.net/					# XXX shr
+.appads.com/					# XXX shr
+edge.quantserver.com/				# XXX shr
+
+ad1.sportschosun.com/				# added by TheNanGirl
+event.kt545.co.kr/				# added by TheNanGirl
+hcimg.realclick.co.kr/	                          # added by TheNanGirl
+rc.asia.srv.overture.com/	                       # added by TheNanGirl
+get.keywordsconnect.com/	                        # added by TheNanGirl
+ad.imad.co.kr/	                                  # added by TheNanGirl
+cm1.newsad.co.kr/	                               # added by TheNanGirl 
+clk.atdmt.com/	                                  # added by TheNanGirl
+click.contextads.net/	                           # added by TheNanGirl
+js.contextads.net/	                              # added by TheNanGirl
+wwwad.seoul.co.kr/	                              # added by TheNanGirl
+ad3.adtive.co.kr/	                               # added by TheNanGirl
+ad.adtive.co.kr/	                                # added by TheNanGirl
+www.lightad.co.kr/	                              # added by TheNanGirl
+adexmedia.co.kr/	                                # added by TheNanGirl
+lightad.co.kr/	                                  # added by TheNanGirl
+cm.interworksmedia.co.kr/	                       # added by TheNanGirl
+ads.realclick.co.kr/	                            # added by TheNanGirl
+ad2.cbs.co.kr/	                                  # added by TheNanGirl
+script.contentlink.co.kr/	                       # added by TheNanGirl 
+ad.imad.co.kr/	                                  # added by TheNanGirl
+cm1.joins.com/	                                  # added by TheNanGirl 
+ad.dt.co.kr/					# added by TheNanGirl
+ad62.feeldmc.com/				# added by TheNanGirl
+ade.realclick.co.kr/				# added by TheNanGirl
+cm.interworksmedia.co.kr/			# added by TheNanGirl
+ad.ytn.co.kr/					# added by TheNanGirl
+ad2.ytn.co.kr/					# added by TheNanGirl
+aspc.adclick.co.kr/				# added by TheNanGirl
+ad.mediatoday.co.kr/				# added by TheNanGirl
+www.adhappy.co.kr/				# added by TheNanGirl
+www.adexmedia.co.kr/				# added by TheNanGirl
+www.adixs.co.kr/					# added by TheNanGirl
+ad.pressian.com/					# added by TheNanGirl
+ad99.feeldmc.com/				# added by TheNanGirl
+mktag.mt.co.kr/					# added by TheNanGirl
+ad.newdaily.co.kr/				# added by TheNanGirl
+ad9.feeldmc.com/					# added by TheNanGirl
+adsvr.kukinews.com/				# added by TheNanGirl
+adsr.zdnet.co.kr/				# added by TheNanGirl
+adv.segye.com/					# added by TheNanGirl
+adv.entnew.co.kr/				# added by TheNanGirl
+adv.2beon.co.kr/					# added by TheNanGirl
+ad.sportsseoul.com/				# added by TheNanGirl
+a6.ationnet.com/					# added by TheNanGirl
+js.keywordsconnect.com/				# added by TheNanGirl
+msn42.nasads.com/				# added by TheNanGirl
+www.adexmedia.co.kr/				# added by TheNanGirl
+advs.hakyung.com/				# added by TheNanGirl
+ad.mk.co.kr/					# added by TheNanGirl
+ad.ad4989.co.kr/					# added by TheNanGirl
+adsvr.kukinews.com/				# added by TheNanGirl
+ad1.kukinews.com/				# added by TheNanGirl
+nad.adtive.co.kr/				# added by TheNanGirl
+ad01.inews24.com/				# added by TheNanGirl
+adv.etnews.co.kr/				# added by TheNanGirl
+adv.mediaharbor.co.kr/				# added by Pao Nan
+afs.opap.co.kr/					# added by Pao Nan
+adclix.daum.net/	                        	# added by nosense - Daum_Adclix
+adclixad.daum.net/	                      	# added by nosense 
+amsv2.daum.net/	                         	# added by nosense - Daum
+nv1.ad.naver.com/	                       	# added by nosense 
+nv2.ad.naver.com/	                       	# added by nosense 
+nv3.ad.naver.com/	                       	# added by nosense 
+nv4.ad.naver.com/	                       	# added by nosense 
+nv5.ad.naver.com/	                       	# added by nosense 
+nv6.ad.naver.com/	                       	# added by nosense 
+ad.news.naver.com/	                      	# added by nosense - Naver_ETC
+adcreative.naver.com/	                   	# added by nosense 
+ad.daum.net/	                            	# added by nosense - Daum_Main_Page
+ad.dcinside.com/	                        	# added by nosense - Dcinside
+nateonevent.nate.com/	                   	# added by nosense - nateon
+cyad.nate.com/	                          	# added by nosense 
+adimg.nate.com/	                         	# added by nosense 
+adc.dreamwiz.com/	                       	# added by nosense - dreamwiz
+ad1.targetgraph.com/	                    	# added by nosense - msn
+ad2.targetgraph.com/	                    	# added by nosense 
+ad3.targetgraph.com/	                    	# added by nosense 
+ad4.targetgraph.com/	                    	# added by nosense 
+adserver.zdnet.co.kr/	                   	# added by nosense - zdnet
+ad.coas2.co.kr/	                         	# added by nosense 
+tag.ad-indicator.com/	                   	# added by nosense 
+img.ad-indicator.com/	                   	# added by nosense 
+adv.danawa.com/	                         	# added by nosense - danawa
+linkview.kilho.net/	                     	# added by nosense - kilho.net
+connect.kr/	                             	# added by nosense - dreamwiz.com
+cad.chosun.com/	                         	# added by nosense - chosun.com
+adcount.ohmynews.com/	                   	# added by nosense - ohmynews.com
+ad.hani.co.kr/	                          	# added by nosense - hani.co.kr
+click.realclick.co.kr/	                  	# added by nosense 
+ar.donga.com/	                           	# added by nosense - donga.com
+adp.joins.com/	                          	# added by nosense - joins.com
+adc.ipop.co.kr/	                         	# added by nosense - ipop.co.kr
+ad.khan.co.kr/	                          	# added by nosense - khan.co.kr
+adver.paran.com/	                        	# added by nosense - paran.com
+adv.danawa.co.kr/	                       	# added by nosense - danawa.com
+adz.kr.yahoo.com/	                       	# added by nosense - kr.yahoo.com
+richmedia.yimg.com/	                     	# added by nosense 
+ad.empas.com/	                           	# added by nosense - empas.com
+ad.gmarket.co.kr/	                       	# added by nosense - gmarket.co.kr
+ad.sayclub.com/	                         	# added by nosense - sayclub.com
+adweb.nexcon.co.kr/	                     	# added by nosense - nexon.co.kr
+ad.pandora.tv/	                          	# added by nosense - pandora.tv
+ad2.buddybuddy.co.kr/	                   	# added by nosense - buddybuddy.co.kr
+ad2.crezio.com/	                         	# added by nosense - kbs.co.kr
+ad.realmedia.co.kr/	                     	# added by nosense - sbs.co.kr
+adkt.iple.com/	                          	# added by nosense - mncast.com
+adv.pdbox.co.kr/	                        	# added by nosense - pdbox.co.kr
+liveadv.pdbox.co.kr/	                    	# added by nosense 
+cm.kr.overture.com/	                     	# added by nosense 
+adimg.bugs.co.kr/	                       	# added by nosense - bugs.co.kr
+ad.soribada.com/	                        	# added by nosense - soribada.com
+ad.hankooki.com/	                        	# added by nosense - hankooki.com
+
+
+############################/	게임, 공유 사이트 ############################
+
+
+
+ad.gamemeca.com/	# 게임메카
+
+
+adweb.nexcon.co.kr/	# 넥슨
+adweb.nexon.com/
+advertise.nexon.com/
+ad.nexon.com/
+
+
+cadimage.netmarble.net/	# 넷마블
+adserver.netmarble.net/
+show.click.netmarble.net/
+
+
+fdisk.co.kr/	# 에프디스크
+kdisk.co.kr/
+webimage.fdisk.co.kr/
+webimage.kdisk.co.kr/
+www.fdisk.co.kr/
+
+
+adkti.mgame.com/	# 엠게임
+
+
+adv.pdbox.co.kr/	# 피디박스 & 클럽박스
+greenbbs.clubbox.co.kr/
+ftp4.pdbox.co.kr/
+ftp2.clubbox.co.kr/
+liveadv.pdbox.co.kr/
+
+
+ad.pmang.com/	# 피망
+
+
+############################/	기업 사이트 ############################
+
+adimg.gomtv.com/	# 곰 소프트
+adw.gomtv.com/
+gom.searchwidget.co.kr/
+
+
+activate.adobe.com/	# 어도비
+activate-sjc0.adobe.com/
+practivate.adobe.com/
+ereg.adobe.com/
+activate.wip3.adobe.com/
+wip3.adobe.com/
+3dns-3.adobe.com/
+3dns-2.adobe.com/
+adobe-dns.adobe.com/
+adobe-dns-2.adobe.com/
+adobe-dns-3.adobe.com/
+ereg.wip3.adobe.com/
+wwis-dubc1-vip60.adobe.com/
+ood.opsource.net/
+CRL.VERISIGN.NET/
+adobeereg.com/
+OCSP.SPO1.VERISIGN.COM/
+activate-sea.adobe.com/
+125.252.224.91/
+125.252.224.90/
+hl2rcv.adobe.com/
+www.adobeereg.com/
+adobe.activate.com/
+activate-sea.adobe.com/
+
+
+enclean.adserver.co.kr/	# 엔크린
+enclean.dtribe.co.kr/
+
+
+rad.msn.com/	# msn
+rad.live.com/
+
+
+albanner.altools.com/	# 이스트소프트
+ad1.estsoft.com/
+ad2.estsoft.com/
+ad3.estsoft.com/
+ad4.estsoft.com/
+ad5.estsoft.com/
+ad6.estsoft.com/
+ad7.estsoft.com/
+ad8.estsoft.com/
+ad9.estsoft.com/
+ad10.estsoft.com/
+
+
+############################/	뉴스, 방송 사이트 ############################
+
+cadvv.heraldm.com/	#헤럴드 경제
+
+ads.khan.co.kr/	# 경향신문
+
+
+211.110.211.29/	# 국민일보 & 쿠키뉴스
+ad.kukinews.com/
+ad1.kukinews.com/
+
+
+ad2.cbs.co.kr/	# 노컷뉴스
+logger.cbs.co.kr/
+cbs.bohumlife.com/
+
+
+ad.newdaily.co.kr/	# 뉴데일리
+
+
+ar.donga.com/	# 동아일보 & 스포츠동아
+adimg.donga.com/
+
+ad.pressian.com/	#프레시안 added by Pao Nan
+
+ad.dt.co.kr/	# 디지털타임스
+
+
+ad.mk.co.kr/	# 매일경제 & 매일경제tv
+ics1.mk.co.kr/
+
+
+am7.munhwa.com/	# 문화일보
+adsrv.munhwa.co.kr/
+
+
+ad.yieldmanager.com/	# 미디어오늘
+saleclock.co.kr/
+samsungallife.naonmedia.net/
+realscan.co.kr/
+js.contextads.net/
+ad1.targetgraph.com/
+ndsoft.co.kr/
+mediatoday.saleclock.com/
+48size.com/
+carstart.co.kr/
+ad.mediatoday.co.kr/
+contextads.net/
+dsm.estn.kr/
+n49.nsmartad.com/
+
+
+wwwad.seoul.co.kr/	# 서울신문
+weblog.seoul.co.kr/
+
+
+adv.segye.com/	# 세계일보
+teltalk.segye.com/
+
+
+ad.sportsseoul.com/	# 스포츠서울
+log.sportsseoul.com/
+
+
+ad.asiae.co.kr/	# 아시아경제
+
+
+ads1.sbs.co.kr/	# sbs
+ad.realmedia.co.kr/
+
+
+adcount.ohmynews.com/	# 오마이뉴스
+
+
+mktag.mt.co.kr/	# 오션
+ljuro.com/
+manomedi.net/
+acecounter.com/
+gtcc1.acecounter.com/
+logger.co.kr/
+trk1.logger.co.kr/
+adexmedia.co.kr/
+
+
+ad.ytn.co.kr/	# ytn
+ad1.ytn.co.kr/
+ad2.ytn.co.kr/
+ad3.ytn.co.kr/
+ad4.ytn.co.kr/
+ad5.ytn.co.kr/
+mom2.ytn.co.kr/
+mom1.ytn.co.kr/
+mom3.ytn.co.kr/
+
+
+ad.edaily.co.kr/	# 이데일리
+
+
+adv.etnews.co.kr/	# 전자신문
+admin.etnews.co.kr/
+
+
+adimg1.chosun.com/	# 조선일보 & 스포츠조선
+cad.chosun.com/
+adimg.emato.net/
+365event.chosun.com/
+ad1.sportschosun.com/
+
+
+adp.joins.com/	# 중앙일보 & 일간스포츠 & 아이뉴스24 & 조이뉴스24
+ad01.inews24.com/
+cmpm.joins.com/
+shopbox.joins.com/
+cm1.joins.com/
+ndarticle.joins.com/
+
+
+adsr.zdnet.co.kr/	# 지디넷코리아
+adserver.zdnet.co.kr/
+ad.coas2.co.kr/
+
+
+ad2.crezio.com/	# kbs
+
+
+ads.fnnews.com/	# 파이낸셜뉴스
+ad.fnnews.com/
+
+
+ad.pressian.com/	# 프레시안
+
+
+advs.hankyung.com/	# 한국경제
+ads-outlink.hankyung.com/
+
+
+ad.hankooki.com/	# 한국일보 & 서울경제
+sale.hankooki.com/
+meritz.tv/
+hankooki1.meritzfire.tv/
+js.keywordsconnect.com/
+gtp8.acecounter.com/
+adenter.co.kr/
+maruco77.cafe24.com/
+ssl.http.or.kr/
+gtb16.acecounter.com/
+weblog2-002.cafe24.com/
+hanescokr.weblog.cafe24.com/
+asp20.http.or.kr/
+image.lsinfo.co.kr/
+lsinfo.co.kr/
+
+
+ad.heraldbiz.com/	# 헤럴즈경제 & 코리아헤럴드
+loger.heraldbiz.com/
+
+
+ad.hani.co.kr/	# 한계레 & 씨네21
+redirect.hani.co.kr/
+cast.wowtv.co.kr/	# Added by Pao Nan
+
+
+############################/	쇼핑, 음악 사이트 ############################
+
+adv.danawa.com/	# 다나와
+
+
+adimg.bugs.co.kr/	# 벅스뮤직
+award.bugs.co.kr/
+
+
+adserver.auction.co.kr/	# 옥션
+adfront.auction.co.kr/
+
+
+adgirl.yes24.com/	# 예스24
+
+
+ad.gmarket.co.kr/	# g마켓
+
+
+############################/	커뮤니티 사이트 ############################
+
+adc.dreamwiz.com/	# 드림위즈
+
+
+ad.dcinside.com/	# 디시인사이드
+
+
+ad.ruliweb.com/	# 루리웹
+
+
+ad2.buddybuddy.co.kr/	# 버디버디
+
+
+ad.sayclub.com/	# 세이클럽
+
+
+adkt.iple.com/	# mn케캐스트
+cm.kr.overture.com/
+
+
+ac.allblog.net/	# 티스토리
+
+############################/	포털 사이트 ############################
+
+googleadservices.com/	# 구글
+pagead2.googlesyndication.com/
+#google-analytics.com/
+#ajax.googleapis.com/
+#www.googleapis.com/
+#translate.googleapis.com/
+#apis.google.com/
+#plus.google.com/
+
+
+nv1.ad.naver.com/	# 네이버 & 한게임
+ad.news.naver.com/
+nv2.ad.naver.com/
+nv3.ad.naver.com/
+nv.ad.naver.com/
+searchad.naver.com/
+ad.naver.com/
+adcreative.naver.com/
+creative.nbms.naver.com/
+ad.nbms.naver.com/
+
+
+211.234.239.38/	# 네이트 & 네이트온 & 싸이월드
+cyad.nate.com/
+adimg.nate.com/
+hcweb.cyworld.com/
+nateonevent.nate.com/
+nateon.nate.com/
+nokw.nate.com/
+minibar.cyworld.com/
+edge.ucc.skcomms.hscdn.com/
+
+
+amsv2.daum.net/	# 다음
+adclix.daum.ne/
+adclixad.daum.net/
+nv1.ad.naver.com/
+nv2.ad.naver.com/
+nv3.ad.naver.com/
+nv4.ad.naver.com/
+nv5.ad.naver.com/
+nv6.ad.naver.com/
+nv7.ad.naver.com/
+nv8.ad.naver.com/
+nv9.ad.naver.com/
+log.inside.daum.net/
+ad.daum.net/
+ca.adtc.daum.net/
+amsimg.daum-img.net/
+
+
+kr.ads.yimg.com/	# 야후코리아
+adz.kr.yahoo.com/
+richmedia.yimg.com/
+add.my.yahoo.com/
+srv1.wa.marketingsolutions.yahoo.com/
+srv2.wa.marketingsolutions.yahoo.com/
+srv3.wa.marketingsolutions.yahoo.com/
+
+
+adver.paran.com/	# 파란
+
+############################/	바이러스 차단 ############################
+
+61.100.186.55/
+foordeen.com/
+ayuorning.com/
+
+############################/	기타 광고 사이트 ############################
+
+adx.naonmedia.net/
+sndkorea.nowcdn.co.kr/
+116.76.255.122/
+210.127.209.139/
+210.127.209.240/
+a.ationnet.com/
+a.imagehost.org/
+abox.ationnet.com/
+ad.adtive.co.kr/
+ad.imad.co.kr/
+ad.moneyro.co.kr/
+ad.owra.net/
+ad.swsoft.com/
+ad.topenplatform.com/
+ad1.adtive.co.kr/
+ad1.adtive.co.kr/
+ad1.dmcmedia.co.kr/
+ad10.adtive.co.kr/
+ad10.targetgraph.com/
+ad1game.com/
+ad2.adtive.co.kr/
+ad2.adtive.co.kr/
+ad2.targetgraph.com/
+ad20.feeldmc.com/
+ad2game.com/
+ad3.adtive.co.kr/
+ad3.adtive.co.kr/
+ad3.targetgraph.com/
+ad3game.com/
+ad4.adtive.co.kr/
+ad4.adtive.co.kr/
+ad4.targetgraph.com/
+ad40.feeldmc.com/
+ad4game.com/
+ad5.adtive.co.kr/
+ad5.adtive.co.kr/
+ad5.targetgraph.com/
+ad5game.com/
+ad6.adtive.co.kr/
+ad6.adtive.co.kr/
+ad6.targetgraph.com/
+ad6game.com/
+ad7.adtive.co.kr/
+ad7.adtive.co.kr/
+ad7.targetgraph.com/
+ad8.adtive.co.kr/
+ad8.adtive.co.kr/
+ad8.targetgraph.com/
+ad9.adtive.co.kr/
+ad9.adtive.co.kr/
+ad9.targetgraph.com/
+ada.realclick.co.kr/
+adb.realclick.co.kr/
+adc.realclick.co.kr/
+adclk.migame.tv/
+add.realclick.co.kr/
+adday.co.kr/
+addthis.com/
+ade.realclick.co.kr/
+adf.realclick.co.kr/
+adg.realclick.co.kr/
+adh.realclick.co.kr/
+adi.realclick.co.kr/
+adimg.emato.net/
+adixs.co.kr/
+adj.realclick.co.kr/
+adk.realclick.co.kr/
+adl.realclick.co.kr/
+adm.realclick.co.kr/
+admc.synerpact.kr/
+adn.realclick.co.kr/
+ado.realclick.co.kr/
+adp.realclick.co.kr/
+adplex.co.kr/
+adplex.co.kr/
+adr.realclick.co.kr/
+ads.korea.com/
+ads.realclick.co.kr/
+ads.tvants.com/
+adserver.co.kr/
+adstart.co.kr/
+adsvc.wisenut.co.kr/
+adsystem.kr/
+adt.realclick.co.kr/
+adu.realclick.co.kr/
+adv.realclick.co.kr/
+adw.realclick.co.kr/
+adx.realclick.co.kr/
+ady.realclick.co.kr/
+adz.realclick.co.kr/
+adzzim.com/
+aimlife.co.kr/
+ak.fbcdn.net/
+amclick.wisenut.co.kr/
+amcsvc.wisenut.co.kr/
+amg.asiae.co.kr/
+antwaist.cafe24.com/
+ap.vizooo.com/
+askpop.com/
+asp3.http.or.kr/
+assacom.com/
+ationnet.com/
+bujane.co.kr/
+c1.ationnet.com/
+c777.info/
+cache2.tvants.com/
+cds018.sj1.cdn.ad4game.com/
+ckddiet.com/
+click.clickstory.co.kr/
+click.contextads.net/
+click.keywordsconnect.com/
+click.linkprice.com/
+click.realclick.co.kr/
+click.targetbanner.co.kr/
+clk.atdmt.com/
+clubfriends.co.kr/
+cm.interworksmedia.co.kr/
+cm1.newsad.co.kr/
+cm3.jssearch.net/
+conel.co.kr/
+content.yieldmanager.edgesuite.net/
+contents.mylinker.co.kr/
+contest.kfisac.kr/
+convctr.overture.com/
+creativeslim.net/
+crowdgravity.com/
+dcm01.livead24.com/
+delivery.trafficjunky.net/
+directlife.naonmedia.net/
+doubleaction.co.kr/
+dragsearch.com/
+ecomix.co.kr/
+esrshop.cafe24.com/
+event.010star.co.kr/
+event.kt545.co.kr/
+external.ak.fbcdn.net/
+fbcdn.net/
+feeds2.feedburner.com/
+feeldmc.com/
+feeldmc.com/
+gtp1.acecounter.com/
+han5723.cafe24.com/
+hanaroskin.co.kr/
+hcimg.realclick.co.kr/
+heraldbiz.com/
+hesclean.co.kr/
+hidisk.com/
+hijumpo.com/
+hisclean.co.kr/
+holdemstars.co.kr/
+hown.info/
+imad.co.kr/
+image.adtive.co.kr/
+image.ationnet.com/
+image.jshopbox.com/
+image.wisenut.co.kr/
+image.yigao.com/
+img.ad-indicator.com/
+img.contextads.net/
+img.iacstatic.co.kr/
+img.keywordsconnect.com/
+img.linkprice.com/
+img.newsad.co.kr/
+img.sdanawa.com/
+img.wise.aircross.com/
+imsc21.iptime.org/
+insu.gsshop.com/
+internalsearch.keywordsconnect.com/
+j2v.co.kr/
+jaseng.co.kr/
+jjinfo.co.kr/
+join4.creditbank.co.kr/
+jumpdisk.com/
+kdbon.com/
+kdbongood.com/
+kdisk.co.kr/
+keywordsconnect.com/
+kookinews1.meritzfire.tv/
+livecamfun.com/
+loseweight.co.kr/
+luble.lgcdn.com/
+main.korea.com/
+manager-ams.mk.co.kr/
+mariposakorea.com/
+marketing.wisenut.co.kr/
+mdimg.realclick.co.kr/
+media.resulthost.org/
+media.sweetmedia.org/
+medicscare.co.kr/
+meeting.interich.com/
+minervaad.com/
+minervaad.com/
+minishop.linkprice.com/
+mojadome.com/
+monitor.yigao.com/
+mopen.co.kr/
+ms.2beon.co.kr/
+multigift.co.kr/
+mylinker.co.kr/
+myoverture.co.kr/
+mztag.ad-indicator.com/
+n1.247realmedia.co.kr/
+nac.newsadcenter.com/
+nad.adtive.co.kr/
+nads1.nasads.com/
+nads10.nasads.com/
+nads100.nasads.com/
+nads11.nasads.com/
+nads12.nasads.com/
+nads13.nasads.com/
+nads14.nasads.com/
+nads15.nasads.com/
+nads16.nasads.com/
+nads17.nasads.com/
+nads18.nasads.com/
+nads19.nasads.com/
+nads2.nasads.com/
+nads20.nasads.com/
+nads21.nasads.com/
+nads22.nasads.com/
+nads23.nasads.com/
+nads24.nasads.com/
+nads25.nasads.com/
+nads26.nasads.com/
+nads27.nasads.com/
+nads28.nasads.com/
+nads29.nasads.com/
+nads3.nasads.com/
+nads30.nasads.com/
+nads31.nasads.com/
+nads32.nasads.com/
+nads33.nasads.com/
+nads34.nasads.com/
+nads35.nasads.com/
+nads36.nasads.com/
+nads37.nasads.com/
+nads38.nasads.com/
+nads39.nasads.com/
+nads4.nasads.com/
+nads40.nasads.com/
+nads41.nasads.com/
+nads42.nasads.com/
+nads43.nasads.com/
+nads44.nasads.com/
+nads45.nasads.com/
+nads46.nasads.com/
+nads47.nasads.com/
+nads48.nasads.com/
+nads49.nasads.com/
+nads5.nasads.com/
+nads50.nasads.com/
+nads51.nasads.com/
+nads52.nasads.com/
+nads53.nasads.com/
+nads54.nasads.com/
+nads55.nasads.com/
+nads56.nasads.com/
+nads57.nasads.com/
+nads58.nasads.com/
+nads59.nasads.com/
+nads6.nasads.com/
+nads60.nasads.com/
+nads61.nasads.com/
+nads62.nasads.com/
+nads63.nasads.com/
+nads64.nasads.com/
+nads65.nasads.com/
+nads66.nasads.com/
+nads67.nasads.com/
+nads68.nasads.com/
+nads69.nasads.com/
+nads7.nasads.com/
+nads70.nasads.com/
+nads71.nasads.com/
+nads72.nasads.com/
+nads73.nasads.com/
+nads74.nasads.com/
+nads75.nasads.com/
+nads76.nasads.com/
+nads77.nasads.com/
+nads78.nasads.com/
+nads79.nasads.com/
+nads8.nasads.com/
+nads80.nasads.com/
+nads81.nasads.com/
+nads82.nasads.com/
+nads83.nasads.com/
+nads84.nasads.com/
+nads85.nasads.com/
+nads86.nasads.com/
+nads87.nasads.com/
+nads88.nasads.com/
+nads89.nasads.com/
+nads9.nasads.com/
+nads90.nasads.com/
+nads91.nasads.com/
+nads92.nasads.com/
+nads93.nasads.com/
+nads94.nasads.com/
+nads95.nasads.com/
+nads96.nasads.com/
+nads97.nasads.com/
+nads98.nasads.com/
+nads99.nasads.com/
+naonmedia.net/
+naonmedia.net/
+nasimg.nasmedia.co.kr/
+navvy.rankey.com/
+new.jshopbox.com/
+nude.interich.com/
+okban.co.kr/
+oklasik.com/
+overture.co.kr/
+overture.com/
+p.lumieyes.com/
+p.yigao.com/
+p2p.xpotal.net/
+partner.targetbanner.co.kr/
+phonekeeper.kr/
+photolink.lumieyes.com/
+photos-b.ak.fbcdn.net/
+pnkad.co.kr/
+provider-cdn.ntomap.com/
+ps555.taplay.us/
+ptimg.realclick.co.kr/
+rbownet.com/
+rc.asia.srv.overture.com/
+realclick.co.kr/
+REELga3.ki7.us/
+reeltt52.ki7.us/
+s1.adtive.co.kr/
+s7.addthis.com/
+scimg.realclick.co.kr/
+script.contentlink.co.kr/
+sdanawa.com/
+sdanawa.com/
+secure.streamate.com/
+sense.contentlink.co.kr/
+seumi.com/
+shinhan.naonmedia.net/
+shopbox.jshopbox.com/
+site.keywordsconnect.com/
+sportsworldi.com/
+static.acs86.com/
+static.ak.fbcdn.net/
+streamate.com/
+sweetmedia.org/
+synerpact.com/
+synerpact.kr/
+tag.targetbanner.co.kr/
+tempos.co.kr/
+theone.co.kr/
+thumbshots.co.kr/
+topenplatform.com/
+tracking.trafficjunky.net/
+trafficjunky.net/
+update.haansoft.com/
+uriclick.com/
+view.atdmt.com/
+vip.feeldmc.com/
+wec.co.kr/
+wedian.co.kr/
+welcomebohum.co.kr/
+whereistorrent.com/
+whitestyle.com/
+wibro82.co.kr/
+widget01.twar.co.kr/
+widgets.amung.us/
+wj1202.adday.co.kr/
+womanslim.com/
+zero-ro.com/
+zetswing.ttongfly.net/
+neoclick.co.kr/
+namudiet.net/
+j2v.kr/
+lightad.co.kr/
+orangeclinic.co.kr/
+realmedia.com/
+n22.nsmartad.com/
+cybodo.com/
+boss69.cafe24.com/
+bbc.national.com/
+nekadarcok.com/
+glpharmacy.com/
+cas.criteo.com/
+ipay.auction.co.kr/	#added by Pao Nan
+about.co.kr/		#added by Pao Nan
+i.iabout.kr/		#added by Pao Nan
+iabout.kr/		#added by Pao Nan
+trep.co.kr/		#added by Pao Nan
+adv.imadrep.co.kr/	#added by Pao Nan
+imadrep.co.kr/		#added by Pao Nan
+sba.about.co.kr/	#added by Pao Nan
+ads1.adinc.co.kr/	#added by Pao Nan
+ads2.adinc.co.kr/	#added by Pao Nan
+ads3.adinc.co.kr/	#added by Pao Nan
+ad.about.co.kr/	#added by Pao Nan
+qcma.qrobo.com/	#added by Pao Nan
+qrobo.com/		#added by Pao Nan
+cl.ncclick.co.kr/	#added by Pao Nan
+ncclick.co.kr/		#added by Pao Nan
+sosa.semanticrep.com/	 #added by Pao Nan
+adx.naonmedia.net/	#added by Pao Nan
+leadcompany.co.kr/	#added by Pao Nan
+hiadone.com/		#added by Pao Nan
+ts.2beon.co.kr/	#added by Pao Nan
+ad.ad-ya.net/		#added by Pao Nan
+agate.opap.co.kr/	#added by Pao Nan
+rc.asia.srv.overture.com/	#added by Pao Nan
+shopingbox.joins.com/	#added by Pao Nan
+www.wiseclick.co.kr/	#added by Pao Nan
+adw.heraldm.com/		#added by Pao Nan
+ad.pickple.net/	#added by Pao Nan
+adc.ohmynews.com/	#added by Pao Nan
+adixs-ad.co.kr/	#added by Pao Nan
+lightasp.dmcmedia.co.kr/	#added by Pao Nan
+bizcenter.etnews.com/		#added by Pao Nan
+ad.oyez.co.kr/		#added by Pao Nan
+amclick.wisenut.co.kr/	#added by Pao Nan
+adimg.wisenut.co.kr/		#added by Pao Nan
+adsvc2.wisenut.co.kr/		#added by Pao Nan
+googleads.g.doubleclick.net/	#added by Pao Nan
+pubads.g.doubleclick.net/	#added by Pao Nan
+c1.ationnet.co.kr/		#added by Pao Nan
+img1.ationnet.com/		#added by Pao Nan
+dgate.opap.co.kr/		#added by Pao Nan
+sgate.opap.co.kr/		#added by Pao Nan
+opap.co.kr/			#added by Pao Nan
+img.adecorp.co.kr/		#added by Pao Nan
+adv.mediaharbor.co.kr/		#added by Pao Nan
+kr.ads.yimg.com/		#added by Pao Nan
+global.ard.yahoo.com/		#added by Pao Nan
+pv.tag.ntomap.com/		#added by Pao Nan
+adon.naonmedia.net/		#added by Pao Nan
+adx.naonmedia.net/		#added by Pao Nan
+ad.ytn.co.kr/		#added by Pao Nan
+adcrm.co.kr/		#added by Pao Nan
+squid.nsmartad.com/	#added by Pao Nan
+dynamic.adexm.kr/	#added by Pao Nan
+rtax.criteo.com/	#added by Pao Nan
+ttalk.pickple.com/	#added by Pao Nan
+social.pickple.com/	#added by Pao Nan

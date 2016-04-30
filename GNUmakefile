@@ -21,18 +21,24 @@ _build:
 	docker build -t $$IMAGE .
 
 #--net=host
-#-u $$(id -u):$$(id -g)
+#-u $$(id -u):$$(id -g) \
+
+rerun:	unrun run
 
 run:	nat
+	mkdir -p /tmp/$$(id -u)
 	-docker run --name=$$CONTAINER \
 	    --restart=unless-stopped \
 	    -p 8118:8118 \
 	    -p 8123:8123 \
 	    -p 9050:9050 \
 	    -p 5555:5555 \
-	    -v /tmp/proxy:/opt/proxy/var \
+	    -v /tmp/$$(id -u)/proxy:/opt/proxy/var \
 	    -d \
 	    $$IMAGE
+
+unrun:
+	docker rm -f $$CONTAINER
 
 rm:	unnat
 	-docker rm -f $$CONTAINER
@@ -59,4 +65,4 @@ logs:
 bash:
 	docker exec -ti $$CONTAINER bash
 
-.PHONY:	build _build run rm logs bash
+.PHONY:	build _build run rm logs bash unrun rerun

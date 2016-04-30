@@ -10,6 +10,12 @@ RUN chmod +x /dumb-init
 ADD out/_opt-proxy.tar.gz /
 COPY start.sh /
 
+RUN mkdir -p /opt/proxy/bin
+COPY ratproxy-log-summary.sh /opt/proxy/bin
+
+RUN mkdir -p /opt/proxy/etc/privoxy
+COPY adblock.action /opt/proxy/etc/privoxy
+
 ENV PATH=/opt/proxy/bin:$PATH
 
 # polipo 8128, privoxy 8118, ratproxy 5555, tor 9050

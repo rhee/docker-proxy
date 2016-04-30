@@ -4,28 +4,40 @@ for d in run log/tor log/polipo log/polipo/cache log/privoxy log/ratproxy; do
   mkdir -p -m 755 /opt/proxy/var/$d
 done
 
+
+
+
+echo "Start tor ..." 1>&2
+
+mkdir -p /opt/proxy/etc/tor
 cat <<EOF > /opt/proxy/etc/tor/torrc
 SocksPort 9050
 ControlPort 9051
 SocksListenAddress 0.0.0.0
-Log notice file /opt/proxy/var/log/tor/tor.log
-RunAsDaemon 1
+Log notice stderr
+RunAsDaemon 0
 ExcludeNodes {kr},{cn}
 HashedControlPassword 16:58559D2611103DF26020C6011A00E4A5FA50B16D2B550EB69DD6958744
 EOF
 
-#nohup sh -c 'while :; /opt/proxy/bin/tor -f /opt/proxy/etc/tor/torrc ; sleep 5 ; done' &
-nohup /opt/proxy/bin/tor -f /opt/proxy/etc/tor/torrc &
+nohup sh -c 'while :; do /opt/proxy/bin/tor -f /opt/proxy/etc/tor/torrc ; sleep 5 ; done' &
 
+sleep 30
+
+
+
+
+
+echo "Start privoxy ..." 1>&2
+
+mkdir -p /opt/proxy/etc/privoxy
 cat <<EOF > /opt/proxy/etc/privoxy/config
 user-manual /usr/share/doc/privoxy/user-manual
 confdir /opt/proxy/etc/privoxy
-logdir /opt/proxy/var/log/privoxy
 actionsfile match-all.action # Actions that are applied to all sites and maybe overruled later on.
 actionsfile default.action   # Main actions file
 actionsfile user.action      # User customizations
 actionsfile adblock.action      # User customizations
-logfile logfile
 debug 1537
 listen-address  :8118
 toggle  1
@@ -52,6 +64,14 @@ EOF
 
 nohup sh -c 'while :; do /opt/proxy/sbin/privoxy --no-daemon /opt/proxy/etc/privoxy/config ; sleep 5 ; done' &
 
+
+
+
+
+
+echo "Start polipo ..." 1>&2
+
+mkdir -p /opt/proxy/etc/polipo
 cat<<EOF > /opt/proxy/etc/polipo/config
 proxyAddress = "0.0.0.0"    # IPv4 only
 chunkHighMark = 50331648
@@ -61,18 +81,20 @@ localDocumentRoot = ""
 dnsQueryIPv6 = no
 relaxTransparency = maybe
 logSyslog = false
-logFile = /opt/proxy/var/log/polipo/polipo.log
 logLevel = 3855
 tunnelAllowedPorts = 1-65535
 EOF
 
-nohup sh -c 'while :; do /opt/proxy/bin/polipo -c /opt/proxy/etc/polipo/config ; sleep 5; done' &
+nohup sh -c 'while :; do /opt/proxy/bin/polipo -c /opt/proxy/etc/polipo/config ; sleep 5 ; done' &
 
-nohup sh -c 'while :; do /opt/proxy/bin/ratproxy -p 5555 -v /opt/proxy/var/log/ratproxy -w /opt/proxy/var/log/ratproxy/log.txt -r -lfscm ; sleep 5; done' &
 
-nohup /opt/proxy/bin/tail-decode.sh &
 
-exec tail -F \
-/opt/proxy/var/log/polipo/polipo.log \
-/opt/proxy/var/log/tor/tor.log \
-/opt/proxy/var/log/privoxy/logfile 1>&2
+
+
+
+echo "Start ratproxy ..." 1>&2
+
+#nohup sh -c 'while :; do /opt/proxy/bin/ratproxy -p 5555 -v /opt/proxy/var/log/ratproxy -w /opt/proxy/var/log/ratproxy/log.txt -r -lfscm | /opt/proxy/bin/tail-decode.sh ; sleep 5; done' &
+nohup sh -c 'while :; do /opt/proxy/bin/ratproxy -p 5555 -v /opt/proxy/var/log/ratproxy -r -lfscm | /opt/proxy/bin/ratproxy-log-summary.sh ; sleep 5 ; done' &
+
+tail -F /--nothing--
