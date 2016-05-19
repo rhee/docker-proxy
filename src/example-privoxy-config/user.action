@@ -172,4 +172,8 @@ www.example.com/nasty-ads/sponsor.gif
 { allow-ads allow-all-cookies }
 .sora.net
 
+{ -block }
+.statmethods.net
+
+
 ## set vi:nowrap tw=72
