@@ -166,14 +166,23 @@ www.example.com/nasty-ads/sponsor.gif
 { +set-image-blocker{blank} }
 #/
 
-#allow-ads   = -block -filter{banners-by-size} -filter{banners-by-link}
-#allow-all-cookies  = -crunch-all-cookies -session-cookies-only -filter{content-cookies}
-#{ -crunch-all-cookies -session-cookies-only -filter{content-cookies} -block -filter{banners-by-size} }
-{ allow-ads allow-all-cookies }
-.sora.net
 
 { -block }
 .statmethods.net
+
+
+
+# --shr, 2016/04/07
+{-block}
+krnic.or.kr
+
+
+
+# youtube iphone 
+
+{ fragile -deanimate-gifs }
+.googlevideo.com
+.youtube.com
 
 
 ## set vi:nowrap tw=72

@@ -3,4 +3,5 @@
 ( cd privoxy-3.0.19-stable ; sh ../20-build-privoxy.sh )
 ( cd tor-0.2.2.35 ; sh ../30-build-tor.sh )
 ( cd ratproxy-1.58/ratproxy ; sh ../../40-build-ratproxy.sh )
+cp privoxy-config/* /opt/proxy/etc/privoxy/
 tar cvzf /out/_opt-proxy.tar.gz -C / opt/proxy/bin opt/proxy/etc opt/proxy/sbin opt/proxy/share/tor
