@@ -23,7 +23,7 @@ forward		/		127.0.0.1:8123
 forward                 .local                  .
 forward                 10.*.*.*/               .
 forward                 127.*.*.*/              .
-forward                 172.*.*.*/              .
+forward                 172.30.*.*/             .
 forward                 192.168.*.*/            .
 forward-socks5          .onion                  127.0.0.1:9050 .
 #forward-socks5          some.other.domain       127.0.0.1:9050 .
