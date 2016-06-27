@@ -3,22 +3,23 @@
 MAKEFILE:=$(lastword $(MAKEFILE_LIST))
 
 export CONTAINER=proxy
-export IMAGE=rhee/proxy
+export OWNER=rhee
+export IMAGE=proxy
 export PORTS="8118 8123 9050 5555"
 
-build:
-	$(MAKE) -f $(MAKEFILE) _build 2>&1 | tee -a build.log
-
-_build:
-	mkdir -p out opt
+build:	.FORCE
 	docker build -t $$IMAGE-builder src
-	docker run --name=$$CONTAINER-builder --rm \
-		-u $$(id -u):$$(id -g) \
-		-v $$PWD/out:/out \
-		-v $$PWD/opt:/opt \
-		-v $$PWD/src:/src \
-		$$IMAGE-builder
-	docker build -t $$IMAGE .
+	#docker run --name=$$CONTAINER-builder \
+	#	-u $$(id -u):$$(id -g) \
+	#	-v $$PWD/out:/out \
+	#	-v $$PWD/opt:/opt \
+	#	-v $$PWD/src:/src \
+	#	$$IMAGE-builder
+	-docker rm $$CONTAINER-builder
+	docker create --name=$$CONTAINER-builder $$IMAGE-builder
+	mkdir -p tmp
+	docker cp $$CONTAINER-builder:/opt tmp
+	docker build -t $$OWNER/$$IMAGE .
 
 #--net=host
 #-u $$(id -u):$$(id -g) \
@@ -35,7 +36,7 @@ run:	nat
 	    -p 5555:5555 \
 	    -v /tmp/$$(id -u)/proxy:/opt/proxy/var \
 	    -d \
-	    $$IMAGE
+	    $$OWNER/$$IMAGE
 
 unrun:
 	docker rm -f $$CONTAINER
@@ -65,4 +66,5 @@ logs:
 bash:
 	docker exec -ti $$CONTAINER bash
 
-.PHONY:	build _build run rm logs bash unrun rerun
+.FORCE:
+.PHONY:	.FORCE build _build run rm logs bash unrun rerun

@@ -473,8 +473,8 @@ man: dok-release
 	mkdir -p doc/source/temp && cd doc/source/temp && $(RM) * ;\
 	nsgmls ../privoxy-man-page.sgml  | sgmlspl ../../../utils/docbook2man/docbook2man-spec.pl &&\
 	perl -pi.bak -e 's/ <URL:.*>//; s/\[ /\[/g' $(MAN_PAGE) ;\
-	perl -pi.bak -e "s/\[ /\[/g;s/á/\\\\['a]/g;s/é/\\\\['e]/g" $(MAN_PAGE); \
-	perl -pi.bak -e "s/ö/\\\\[:o]/g" $(MAN_PAGE); \
+	perl -pi.bak -e "s/\[ /\[/g;s/?/\\\\['a]/g;s/?/\\\\['e]/g" $(MAN_PAGE); \
+	perl -pi.bak -e "s/?/\\\\[:o]/g" $(MAN_PAGE); \
 	perl -pi.bak -e 's/([ {])-([a-z])/$$1\\-$$2/g' $(MAN_PAGE); \
 	perl -pi.bak -e 's/ --([a-z])/ \\-\\-$$1/g' $(MAN_PAGE); \
 	perl -pi.bak -e 's/\\fB--/\\fB\\-\\-/g' $(MAN_PAGE); \
@@ -821,6 +821,7 @@ install: CONF_DEST LOG_DEST PID_DEST check_doc GROUP_T
 
 	@$(ECHO) "Creating directories, and preparing $(PROGRAM_V) installation"
 	$(CHMOD) $(DIR_MODE) $(MKDIR)
+	sync
 	@$(MKDIR) $(DESTDIR)$(SBIN_DEST) $(DESTDIR)$(prefix) $(DESTDIR)$(CONF_DEST) \
 		$(DESTDIR)$(CONF_DEST)/templates $(DESTDIR)$(SHARE_DEST) \
 		$(DESTDIR)$(LOG_DEST) $(DESTDIR)$(PID_DEST)
