@@ -5,13 +5,10 @@ MAINTAINER shr386.docker@outlook.com
 #ENV CCACHE_DIR=/src/.ccache
 
 RUN yum update -y -q
-RUN yum -y -q install gcc gcc-c++ make curl wget tar autoconf automake texinfo ccache
-RUN yum -y -q install libevent-devel pcre-devel libssh-devel
+RUN yum -y -q install gcc gcc-c++ make curl wget tar autoconf automake libtool texinfo
+RUN yum -y -q install libevent-devel pcre-devel libssh-devel zlib-devel openssl-devel
 
-### 00-prerequeisites.sh
-RUN yum install -y -q libevent-devel pcre-devel libssh-devel gcc gcc-c++ make autoconfig libtool zlib-devel openssl-devel
-
-COPY . /src
+COPY ./ /src/
 
 WORKDIR /src/polipo-1.1.1
 RUN sh ../10-build-polipo.sh
