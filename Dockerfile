@@ -10,10 +10,10 @@ RUN chmod +x /dumb-init
 #ADD out/_opt-proxy.tar.gz /
 
 RUN mkdir -p /opt/proxy /opt/proxy/share
-COPY tmp/opt/proxy/bin /opt/proxy
-COPY tmp/opt/proxy/etc /opt/proxy
-COPY tmp/opt/proxy/sbin /opt/proxy
-COPY tmp/opt/proxy/share/tor /opt/proxy/share
+COPY tmp/opt/proxy/bin /opt/proxy/bin
+COPY tmp/opt/proxy/etc /opt/proxy/etc
+COPY tmp/opt/proxy/sbin /opt/proxy/sbin
+COPY tmp/opt/proxy/share/tor /opt/proxy/share/tor
 
 COPY start.sh /
 
