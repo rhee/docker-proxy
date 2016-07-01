@@ -14,7 +14,7 @@ WORKDIR /src/polipo-1.1.1
 RUN sh ../10-build-polipo.sh
 WORKDIR /src/privoxy-3.0.19-stable
 RUN sh ../20-build-privoxy.sh
-WORKDIR /src/tor-0.2.2.35
+WORKDIR /src/tor-0.2.7.6
 RUN sh ../30-build-tor.sh
 WORKDIR /src/ratproxy-1.58/ratproxy
 RUN sh ../../40-build-ratproxy.sh

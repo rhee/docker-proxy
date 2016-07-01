@@ -9,20 +9,11 @@ export PORTS="8118 8123 9050 5555"
 
 build:	.FORCE
 	docker build -t $$IMAGE-builder src
-	#docker run --name=$$CONTAINER-builder \
-	#	-u $$(id -u):$$(id -g) \
-	#	-v $$PWD/out:/out \
-	#	-v $$PWD/opt:/opt \
-	#	-v $$PWD/src:/src \
-	#	$$IMAGE-builder
 	-docker rm $$CONTAINER-builder
 	docker create --name=$$CONTAINER-builder $$IMAGE-builder
 	mkdir -p tmp
 	docker cp $$CONTAINER-builder:/opt tmp
 	docker build -t $$OWNER/$$IMAGE .
-
-#--net=host
-#-u $$(id -u):$$(id -g) \
 
 rerun:	unrun run
 
@@ -38,33 +29,28 @@ run:	nat
 	    -d \
 	    $$OWNER/$$IMAGE
 
-unrun:
-	docker rm -f $$CONTAINER
+unrun:;	docker rm -f $$CONTAINER
 
 rm:	unnat
 	-docker rm -f $$CONTAINER
 
-nat:
-	-if [ ! -z "$$DOCKER_MACHINE_NAME" ]; \
+nat:;	-if [ ! -z "$$DOCKER_MACHINE_NAME" ]; \
 then \
   for port in $$PORTS; do \
     VBoxManage controlvm default natpf1 tcp-$$port,tcp,,$$port,,$$port; \
   done; \
 fi
 
-unnat:
-	-if [ ! -z "$$DOCKER_MACHINE_NAME" ]; \
+unnat:;	-if [ ! -z "$$DOCKER_MACHINE_NAME" ]; \
 then \
   for port in $$PORTS; do \
     VBoxManage controlvm default natpf1 delete tcp-$$port; \
   done; \
 fi
 
-logs:
-	docker logs --follow $$CONTAINER
+logs:;	docker logs --tail=50 --follow $$CONTAINER
 
-bash:
-	docker exec -ti $$CONTAINER bash
+bash:;	docker exec -ti $$CONTAINER bash
 
 .FORCE:
 .PHONY:	.FORCE build _build run rm logs bash unrun rerun
