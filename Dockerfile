@@ -16,6 +16,7 @@ COPY tmp/opt/proxy/sbin /opt/proxy/sbin
 COPY tmp/opt/proxy/share/tor /opt/proxy/share/tor
 
 COPY start.sh /
+COPY add-rules.sh /
 
 RUN mkdir -p /opt/proxy/bin
 COPY ratproxy-log-summary.sh /opt/proxy/bin
