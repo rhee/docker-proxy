@@ -13,7 +13,8 @@ build:	.FORCE
 	docker create --name=$$CONTAINER-builder $$IMAGE-builder
 	mkdir -p tmp
 	docker cp $$CONTAINER-builder:/opt tmp
-	docker build -t $$OWNER/$$IMAGE .
+	docker build -t $$OWNER/$$IMAGE:centos6 .
+	docker build -t $$OWNER/$$IMAGE:alpine3.4 -f Dockerfile-alpine .
 
 rerun:	unrun run
 

@@ -76,7 +76,8 @@ cat<<EOF > /opt/proxy/etc/polipo/config
 proxyAddress = "0.0.0.0"    # IPv4 only
 chunkHighMark = 50331648
 objectHighMark = 16384
-diskCacheRoot=/opt/proxy/var/log/polipo/cache
+#diskCacheRoot=/opt/proxy/var/log/polipo/cache
+diskCacheRoot= ""
 localDocumentRoot = ""
 dnsQueryIPv6 = no
 pmmFirstSize = 16384
