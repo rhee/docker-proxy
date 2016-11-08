@@ -7,16 +7,12 @@ RUN yum update -y -q && \
 
 COPY ./ /src/
 
-#WORKDIR /src/polipo-1.1.1
-#RUN sh ../10-build-polipo.sh
 RUN cd /src/polipo-1.1.1 && \
     make PREFIX=/opt/proxy \
          LOCAL_ROOT=/opt/proxy/share/polipo/www \
          DISK_CACHE_ROOT=/opt/proxy/var/log/polipo/cache \
          all install
-#WORKDIR /src/privoxy-3.0.19-stable
-#RUN sh ../20-build-privoxy.sh
-RUN cd /src/privoxy-3.0.19-stable && \
+RUN cd /src/privoxy-3.0.26-stable && \
     autoheader && \
     autoconf && \
     sh configure \
@@ -26,15 +22,11 @@ RUN cd /src/privoxy-3.0.19-stable && \
 	--with-group=nobody && \
     make && \
     make install
-#WORKDIR /src/tor-0.2.7.6
-#RUN sh ../30-build-tor.sh
-RUN cd /src/tor-0.2.7.6 && \
+RUN cd /src/tor-0.2.8.9 && \
     autoreconf && \
     sh configure --prefix=/opt/proxy --disable-asciidoc && \
     make && \
     make install
-#WORKDIR /src/ratproxy-1.58/ratproxy
-#RUN sh ../../40-build-ratproxy.sh
 RUN cd /src/ratproxy-1.58/ratproxy && \
     make && \
     install -s ratproxy /opt/proxy/bin && \

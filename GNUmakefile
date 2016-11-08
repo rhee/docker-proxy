@@ -6,6 +6,7 @@ export CONTAINER=proxy
 export OWNER=rhee
 export IMAGE=proxy
 export PORTS="8118 8123 9050 5555"
+export TAG=centos6
 
 build:	.FORCE
 	docker build -t $$IMAGE-builder src
@@ -28,7 +29,7 @@ run:	nat
 	    -p 5555:5555 \
 	    -v /tmp/$$(id -u)/proxy:/opt/proxy/var \
 	    -d \
-	    $$OWNER/$$IMAGE
+	    $$OWNER/$$IMAGE:$$TAG
 
 unrun:;	docker rm -f $$CONTAINER
 
