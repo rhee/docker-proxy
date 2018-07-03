@@ -47,8 +47,8 @@ COPY adblock.action /opt/proxy/etc/privoxy
 RUN ( echo '#!/bin/sh'; echo 'tee -a /opt/proxy/etc/privoxy/config' ) > /add-rules.sh
 RUN chmod +x /dumb-init /start.sh /add-rules.sh
 
-# polipo 8128, privoxy 8118, ratproxy 5555, tor 9050
-EXPOSE 8128
+# polipo 8123, privoxy 8118, ratproxy 5555, tor 9050
+EXPOSE 8123
 EXPOSE 8118
 # EXPOSE 5555
 EXPOSE 9050
