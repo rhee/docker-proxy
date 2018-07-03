@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 for d in run log/tor log/polipo log/polipo/cache log/privoxy log/ratproxy; do
   mkdir -p -m 755 /opt/proxy/var/$d
 done
@@ -20,7 +22,7 @@ ExcludeNodes {kr},{cn}
 HashedControlPassword 16:58559D2611103DF26020C6011A00E4A5FA50B16D2B550EB69DD6958744
 EOF
 
-nohup sh -c 'while :; do /opt/proxy/bin/tor -f /opt/proxy/etc/tor/torrc ; sleep 5 ; done' &
+nohup sh -c 'while :; do /opt/proxy/sbin/tor -f /opt/proxy/etc/tor/torrc ; sleep 5 ; done' &
 
 sleep 30
 
@@ -31,8 +33,8 @@ sleep 30
 echo "Start privoxy ..." 1>&2
 
 mkdir -p /opt/proxy/etc/privoxy
+cp /tmp/privoxy-config/* /opt/proxy/etc/privoxy/
 cat <<EOF > /opt/proxy/etc/privoxy/config
-user-manual /usr/share/doc/privoxy/user-manual
 confdir /opt/proxy/etc/privoxy
 actionsfile match-all.action # Actions that are applied to all sites and maybe overruled later on.
 actionsfile default.action   # Main actions file
@@ -93,16 +95,8 @@ logLevel = 3855
 tunnelAllowedPorts = 1-65535
 EOF
 
-nohup sh -c 'while :; do /opt/proxy/bin/polipo -c /opt/proxy/etc/polipo/config ; sleep 5 ; done' &
+nohup sh -c 'while :; do /opt/proxy/sbin/polipo -c /opt/proxy/etc/polipo/config ; sleep 5 ; done' &
 
 
-
-
-
-
-#echo "Start ratproxy ..." 1>&2
-#
-##nohup sh -c 'while :; do /opt/proxy/bin/ratproxy -p 5555 -v /opt/proxy/var/log/ratproxy -w /opt/proxy/var/log/ratproxy/log.txt -r -lfscm | /opt/proxy/bin/tail-decode.sh ; sleep 5; done' &
-#nohup sh -c 'while :; do /opt/proxy/bin/ratproxy -p 5555 -v /opt/proxy/var/log/ratproxy -r -lfscm | /opt/proxy/bin/ratproxy-log-summary.sh ; sleep 5 ; done' &
 
 tail -F /--nothing--

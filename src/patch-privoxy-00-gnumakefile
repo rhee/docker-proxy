@@ -1,0 +1,11 @@
+--- GNUmakefile.in.orig		2018-07-03 14:23:09.639392277 +0900
++++ GNUmakefile.in		2018-07-03 14:23:26.227564236 +0900
+@@ -808,7 +808,7 @@
+ # 	fi
+ 
+ 	@$(ECHO) "Creating directories, and preparing $(PROGRAM_V) installation"
+-	$(CHMOD) $(DIR_MODE) $(MKDIR)
++#	$(CHMOD) $(DIR_MODE) $(MKDIR)
+ 	@$(MKDIR) $(DESTDIR)$(SBIN_DEST) $(DESTDIR)$(prefix) $(DESTDIR)$(CONF_DEST) \
+ 		$(DESTDIR)$(CONF_DEST)/templates $(DESTDIR)$(SHARE_DEST) \
+ 		$(DESTDIR)$(LOG_DEST) $(DESTDIR)$(PID_DEST)
