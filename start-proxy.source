@@ -1,0 +1,9 @@
+:
+docker run --name proxy -d --restart=unless-stopped \
+  -p 3128:3128 \
+  -p 8118:8118 \
+  -p 9050:9050 \
+  -v $HOME/.proxy/var:/opt/proxy/var \
+  -v $HOME/.proxy/etc:/opt/proxy/etc \
+  proxy:alpine3.4 \
+  "$@"
