@@ -4,17 +4,17 @@ MAINTAINER shr386.docker@outlook.com
 RUN apk add --no-cache --virtual .build-deps \
  gcc g++ libc-dev make curl wget tar autoconf automake libtool texinfo \
  libevent-dev pcre-dev libssh-dev zlib-dev openssl-dev && \
-apk add --no-cache libevent pcre libssh
+ apk add --no-cache libevent pcre libssh squid
 
 RUN mkdir -p /opt/proxy/bin /opt/proxy/etc/privoxy /opt/proxy/sbin /opt/proxy/share/tor
 
-ADD src/polipo-1.1.1.tar.gz /src/
-#RUN ls -R /src
-RUN cd /src/polipo-1.1.1 && \
- make PREFIX=/opt/proxy \
-  LOCAL_ROOT=/opt/proxy/share/polipo/www \
-  DISK_CACHE_ROOT=/opt/proxy/var/log/polipo/cache \
-  all install
+### ADD src/polipo-1.1.1.tar.gz /src/
+### #RUN ls -R /src
+### RUN cd /src/polipo-1.1.1 && \
+###  make PREFIX=/opt/proxy \
+###   LOCAL_ROOT=/opt/proxy/share/polipo/www \
+###   DISK_CACHE_ROOT=/opt/proxy/var/log/polipo/cache \
+###   all install
 
 ADD src/privoxy-3.0.26-stable-src.tar.gz /src/
 #RUN ls -R /src
@@ -54,6 +54,8 @@ RUN chmod +x /add-rules.sh
 RUN mkdir -p /tmp/privoxy-config/
 COPY src/privoxy-config/* /tmp/privoxy-config/
 COPY adblock.action /tmp/privoxy-config/
+
+#COPY src/squid.conf /src/squid.conf
 
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
