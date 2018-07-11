@@ -22,7 +22,7 @@ ExcludeNodes {kr},{cn}
 HashedControlPassword 16:58559D2611103DF26020C6011A00E4A5FA50B16D2B550EB69DD6958744
 EOF
 
-nohup sh -c 'while :; do /opt/proxy/sbin/tor -f /opt/proxy/etc/tor/torrc ; sleep 5 ; done' &
+nohup sh -c 'while :; do /opt/proxy/bin/tor -f /opt/proxy/etc/tor/torrc ; sleep 5 ; done' &
 
 sleep 30
 
@@ -35,6 +35,7 @@ echo "Start privoxy ..." 1>&2
 mkdir -p /opt/proxy/etc/privoxy
 cp /tmp/privoxy-config/* /opt/proxy/etc/privoxy/
 cat <<EOF > /opt/proxy/etc/privoxy/config
+user-manual /opt/proxy/share/doc/privoxy/user-manual
 confdir /opt/proxy/etc/privoxy
 actionsfile match-all.action # Actions that are applied to all sites and maybe overruled later on.
 actionsfile default.action   # Main actions file
@@ -54,7 +55,7 @@ allow-cgi-request-crunching 0
 split-large-forms 0
 socket-timeout 300
 # NOTE: *LAST* MATCH WINS
-#forward                 /                       127.0.0.1:8123
+#forward                 /                       127.0.0.1:3128
 forward-socks5          /                       127.0.0.1:9050 .
 forward                 .local                  .
 forward                 10.*.*.*/               .
@@ -80,6 +81,7 @@ echo "Start polipo ..." 1>&2
 mkdir -p /opt/proxy/etc/polipo
 cat<<EOF > /opt/proxy/etc/polipo/config
 proxyAddress = "0.0.0.0"    # IPv4 only
+proxyPort = 3128
 chunkHighMark = 50331648
 objectHighMark = 16384
 #diskCacheRoot=/opt/proxy/var/log/polipo/cache
@@ -95,7 +97,7 @@ logLevel = 3855
 tunnelAllowedPorts = 1-65535
 EOF
 
-nohup sh -c 'while :; do /opt/proxy/sbin/polipo -c /opt/proxy/etc/polipo/config ; sleep 5 ; done' &
+nohup sh -c 'while :; do /opt/proxy/bin/polipo -c /opt/proxy/etc/polipo/config ; sleep 5 ; done' &
 
 
 
