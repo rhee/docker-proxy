@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.4 as builder
 MAINTAINER shr386.docker@outlook.com
 
 RUN apk add --no-cache --virtual .build-deps \
@@ -16,10 +16,11 @@ RUN mkdir -p /opt/proxy/bin /opt/proxy/etc/privoxy /opt/proxy/sbin /opt/proxy/sh
 ###   DISK_CACHE_ROOT=/opt/proxy/var/log/polipo/cache \
 ###   all install
 
-ADD src/privoxy-3.0.26-stable-src.tar.gz /src/
-#RUN ls -R /src
-COPY src/patch-privoxy-00-gnumakefile /src/privoxy-3.0.26-stable/
-RUN cd /src/privoxy-3.0.26-stable && \
+##ADD src/privoxy-3.0.26-stable-src.tar.gz /src/privoxy
+ADD https://www.privoxy.org/sf-download-mirror/Sources/3.0.28%20%28stable%29/privoxy-3.0.28-stable-src.tar.gz /src/
+RUN ls -l /src && tar -x -f /src/privoxy-3.0.28-stable-src.tar.gz -C /src && ls -l src
+COPY src/patch-privoxy-00-gnumakefile /src/privoxy-3.0.28-stable/
+RUN cd /src/privoxy-3.0.28-stable && \
  patch -p0 < patch-privoxy-00-gnumakefile && \
  chmod +x mkinstalldirs && \
  autoheader && \
@@ -32,9 +33,10 @@ RUN cd /src/privoxy-3.0.26-stable && \
  make && \
  make install
 
-ADD src/tor-0.2.8.9.tar.gz /src/
-#RUN ls -R /src
-RUN cd /src/tor-0.2.8.9 && \
+##ADD src/tor-0.2.8.9.tar.gz /src/tor
+ADD https://dist.torproject.org/tor-0.4.3.6.tar.gz /src/
+RUN ls -l /src && tar -x -f /src/tor-0.4.3.6.tar.gz -C /src && ls -l src
+RUN cd /src/tor-0.4.3.6 && \
  autoreconf && \
  sh configure --prefix=/opt/proxy --disable-asciidoc && \
  make && \
@@ -43,8 +45,20 @@ RUN cd /src/tor-0.2.8.9 && \
 RUN apk del .build-deps && \
  rm -fvr /src
 
-### ADD https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64 /dumb-init
+##############################################################
+##############################################################
+##############################################################
 
+
+
+FROM alpine:3.4
+MAINTAINER shr386.docker@outlook.com
+
+RUN apk add --no-cache libevent pcre libssh squid
+
+COPY --from=builder /opt/proxy /opt/proxy
+
+### ADD https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64 /dumb-init
 COPY dumb-init_1.0.1_amd64 /dumb-init
 RUN chmod +x /dumb-init
 
@@ -74,3 +88,4 @@ ENV PATH=/opt/proxy/bin:$PATH
 WORKDIR /opt/proxy/bin
 
 CMD [ "/dumb-init", "/start.sh" ]
+

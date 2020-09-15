@@ -22,9 +22,9 @@ ExcludeNodes {kr},{cn}
 HashedControlPassword 16:58559D2611103DF26020C6011A00E4A5FA50B16D2B550EB69DD6958744
 EOF
 
-nohup sh -c 'while :; do /opt/proxy/bin/tor -f /opt/proxy/etc/tor/torrc ; sleep 5 ; done' &
+nohup /opt/proxy/bin/tor -f /opt/proxy/etc/tor/torrc &
 
-sleep 30
+#sleep 30
 
 
 
@@ -33,14 +33,14 @@ sleep 30
 echo "Start privoxy ..." 1>&2
 
 mkdir -p /opt/proxy/etc/privoxy
-cp /tmp/privoxy-config/* /opt/proxy/etc/privoxy/
+#cp /tmp/privoxy-config/* /opt/proxy/etc/privoxy/
 cat <<EOF > /opt/proxy/etc/privoxy/config
 user-manual /opt/proxy/share/doc/privoxy/user-manual
 confdir /opt/proxy/etc/privoxy
-actionsfile match-all.action # Actions that are applied to all sites and maybe overruled later on.
-actionsfile default.action   # Main actions file
-actionsfile user.action      # User customizations
-actionsfile adblock.action      # User customizations
+#actionsfile match-all.action # Actions that are applied to all sites and maybe overruled later on.
+#actionsfile default.action   # Main actions file
+#actionsfile user.action      # User customizations
+#actionsfile adblock.action      # User customizations
 debug 1537
 listen-address  :8118
 toggle  1
@@ -67,9 +67,10 @@ forward                 .naver.com              .
 forward                 .daum.net               .
 forward-socks5          .onion                  127.0.0.1:9050 .
 #forward-socks5          some.other.domain       127.0.0.1:9050 .
+forward-socks5          gelbooru.com      127.0.0.1:9050 .
 EOF
 
-nohup sh -c 'while :; do /opt/proxy/sbin/privoxy --no-daemon /opt/proxy/etc/privoxy/config ; sleep 5 ; done' &
+nohup /opt/proxy/sbin/privoxy --no-daemon /opt/proxy/etc/privoxy/config &
 
 
 
@@ -97,7 +98,10 @@ nohup sh -c 'while :; do /opt/proxy/sbin/privoxy --no-daemon /opt/proxy/etc/priv
 ### tunnelAllowedPorts = 1-65535
 ### EOF
 
-### nohup sh -c 'while :; do /opt/proxy/bin/polipo -c /opt/proxy/etc/polipo/config ; sleep 5 ; done' &
+### nohup /opt/proxy/bin/polipo -c /opt/proxy/etc/polipo/config &
+
+
+
 
 mkdir -p /opt/proxy/etc/squid
 cat<<EOF > /opt/proxy/etc/squid/squid.conf
@@ -139,7 +143,6 @@ http_access deny all
 icp_access allow localnet
 icp_access deny all
 http_port 3128
-hierarchy_stoplist cgi-bin ?
 access_log /dev/null squid
 refresh_pattern ^ftp:		1440	20%	10080
 refresh_pattern ^gopher:	1440	0%	1440
@@ -147,16 +150,19 @@ refresh_pattern -i (/cgi-bin/|\?) 0	0%	0
 refresh_pattern (Release|Packages(.gz)*)$	0	20%	2880
 refresh_pattern .		0	20%	4320
 acl shoutcast rep_header X-HTTP09-First-Line ^ICY.[0-9]
-upgrade_http0.9 deny shoutcast
 acl apache rep_header Server ^Apache
-broken_vary_encoding allow apache
-extension_methods REPORT MERGE MKACTIVITY CHECKOUT
 hosts_file /etc/hosts
 coredump_dir /var/spool/squid
 cache_peer 127.0.0.1 parent 8118 0 no-query no-digest
 never_direct allow all
 EOF
 
-nohup sh -c 'while :; do /usr/sbin/squid -N -f /opt/proxy/etc/squid/squid.conf -a 3128 -u 3130 ; sleep 5 ; done' &
+## obsolete
+#upgrade_http0.9 deny shoutcast
+#broken_vary_encoding allow apache
+#extension_methods REPORT MERGE MKACTIVITY CHECKOUT
+#hierarchy_stoplist cgi-bin ?
+
+nohup /usr/sbin/squid -N -f /opt/proxy/etc/squid/squid.conf -a 3128 -u 3130 &
 
 tail -F /--nothing--

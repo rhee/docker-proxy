@@ -5,5 +5,5 @@ docker run --name proxy -d --restart=unless-stopped \
   -p 9050:9050 \
   -v $HOME/.proxy/var:/opt/proxy/var \
   -v $HOME/.proxy/etc:/opt/proxy/etc \
-  proxy:alpine3.4 \
+  proxy:alpine3.4-20200915 \
   "$@"

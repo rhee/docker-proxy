@@ -21,8 +21,9 @@ socket-timeout 300
 # NOTE: *LAST* MATCH WINS
 forward		/		127.0.0.1:8123
 forward                 .local                  .
-forward                 10.*.*.*/               .
 forward                 127.*.*.*/              .
+forward                 10.*.*.*/               .
+forward                 172.17.*.*/             .
 forward                 172.30.*.*/             .
 forward                 192.168.*.*/            .
 forward-socks5          .onion                  127.0.0.1:9050 .
