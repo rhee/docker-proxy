@@ -102,8 +102,6 @@ nohup /opt/proxy/sbin/privoxy --no-daemon /opt/proxy/etc/privoxy/config &
 
 
 mkdir -p /opt/proxy/etc/squid
-#acl to_localhost dst 127.0.0.0/8 0.0.0.0/32
-#hosts_file /etc/hosts
 cat<<EOF > /opt/proxy/etc/squid/squid.conf
 acl all src all
 acl manager proto cache_object
@@ -160,6 +158,8 @@ EOF
 #broken_vary_encoding allow apache
 #extension_methods REPORT MERGE MKACTIVITY CHECKOUT
 #hierarchy_stoplist cgi-bin ?
+#acl to_localhost dst 127.0.0.0/8 0.0.0.0/32
+#hosts_file /etc/hosts
 
 nohup /usr/sbin/squid -N -f /opt/proxy/etc/squid/squid.conf -a 3128 -u 3130 &
 
