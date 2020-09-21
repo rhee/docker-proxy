@@ -66,8 +66,6 @@ forward                 .google.com             .
 forward                 .naver.com              .
 forward                 .daum.net               .
 forward-socks5          .onion                  127.0.0.1:9050 .
-#forward-socks5          some.other.domain       127.0.0.1:9050 .
-forward-socks5          gelbooru.com      127.0.0.1:9050 .
 EOF
 
 nohup /opt/proxy/sbin/privoxy --no-daemon /opt/proxy/etc/privoxy/config &
@@ -104,11 +102,12 @@ nohup /opt/proxy/sbin/privoxy --no-daemon /opt/proxy/etc/privoxy/config &
 
 
 mkdir -p /opt/proxy/etc/squid
+#acl to_localhost dst 127.0.0.0/8 0.0.0.0/32
+#hosts_file /etc/hosts
 cat<<EOF > /opt/proxy/etc/squid/squid.conf
 acl all src all
 acl manager proto cache_object
 acl localhost src 127.0.0.1/32
-acl to_localhost dst 127.0.0.0/8 0.0.0.0/32
 acl localnet src 10.0.0.0/8	# RFC1918 possible internal network
 acl localnet src 172.16.0.0/12	# RFC1918 possible internal network
 acl localnet src 192.168.0.0/16	# RFC1918 possible internal network
@@ -138,8 +137,8 @@ http_access deny !Safe_ports
 http_access deny CONNECT !SSL_ports
 http_access allow localhost
 http_access allow localnet
-icp_access allow localnet
 http_access deny all
+icp_access allow localhost
 icp_access allow localnet
 icp_access deny all
 http_port 3128
@@ -151,7 +150,6 @@ refresh_pattern (Release|Packages(.gz)*)$	0	20%	2880
 refresh_pattern .		0	20%	4320
 acl shoutcast rep_header X-HTTP09-First-Line ^ICY.[0-9]
 acl apache rep_header Server ^Apache
-hosts_file /etc/hosts
 coredump_dir /var/spool/squid
 cache_peer 127.0.0.1 parent 8118 0 no-query no-digest
 never_direct allow all

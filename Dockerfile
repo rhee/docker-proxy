@@ -54,7 +54,7 @@ RUN apk del .build-deps && \
 FROM alpine:3.4
 MAINTAINER shr386.docker@outlook.com
 
-RUN apk add --no-cache libevent pcre libssh squid
+RUN apk add --no-cache libevent pcre libssh squid bash
 
 COPY --from=builder /opt/proxy /opt/proxy
 
@@ -74,7 +74,7 @@ COPY adblock.action /tmp/privoxy-config/
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-# polipo 3128, privoxy 8118, tor 9050
+# polipo/squid 3128, privoxy 8118, tor 9050
 EXPOSE 3128
 EXPOSE 8118
 # EXPOSE 5555
@@ -88,4 +88,3 @@ ENV PATH=/opt/proxy/bin:$PATH
 WORKDIR /opt/proxy/bin
 
 CMD [ "/dumb-init", "/start.sh" ]
-
