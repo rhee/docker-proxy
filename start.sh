@@ -1,5 +1,4 @@
 #!/bin/sh
-
 set -e
 
 for d in run log/tor log/polipo log/polipo/cache log/privoxy log/ratproxy; do
@@ -100,6 +99,8 @@ nohup /opt/proxy/sbin/privoxy --no-daemon /opt/proxy/etc/privoxy/config &
 
 
 
+
+echo "Start squid ..." 1>&2
 
 mkdir -p /opt/proxy/etc/squid
 cat<<EOF > /opt/proxy/etc/squid/squid.conf
