@@ -1,9 +1,11 @@
 :
-docker run --name proxy -d --restart=unless-stopped \
-  -p 3128:3128 \
-  -p 8118:8118 \
-  -p 9050:9050 \
-  -v $HOME/.proxy/var:/opt/proxy/var \
-  -v $HOME/.proxy/etc:/opt/proxy/etc \
-  proxy:alpine3.4-20200915 \
-  "$@"
+( set -e -x
+  IMAGE=proxy:alpine3.4-20200923
+  docker run --name proxy -d --restart=unless-stopped \
+    -p 3128:3128 \
+    -p 8118:8118 \
+    -p 9050:9050 \
+    -v $HOME/.proxy/var:/opt/proxy/var \
+    -v $HOME/.proxy/etc:/opt/proxy/etc \
+    "$IMAGE" \
+    "$@" )
