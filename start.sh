@@ -150,7 +150,7 @@ refresh_pattern .		0	20%	4320
 acl shoutcast rep_header X-HTTP09-First-Line ^ICY.[0-9]
 acl apache rep_header Server ^Apache
 coredump_dir /var/spool/squid
-cache_peer 127.0.0.1 parent 8118 0 no-query no-digest
+### cache_peer 127.0.0.1 parent 8118 0 no-query no-digest
 never_direct allow all
 EOF
 
@@ -162,6 +162,6 @@ EOF
 #acl to_localhost dst 127.0.0.0/8 0.0.0.0/32
 #hosts_file /etc/hosts
 
-nohup /usr/sbin/squid -N -f /opt/proxy/etc/squid/squid.conf -a 3128 -u 3130 &
+nohup bash -c 'while :; do /usr/sbin/squid -N -f /opt/proxy/etc/squid/squid.conf -a 3128 -u 3130; sleep 30; done' &
 
 tail -F /--nothing--
