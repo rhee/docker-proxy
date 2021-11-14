@@ -150,7 +150,7 @@ refresh_pattern .		0	20%	4320
 acl shoutcast rep_header X-HTTP09-First-Line ^ICY.[0-9]
 acl apache rep_header Server ^Apache
 coredump_dir /var/spool/squid
-cache_peer 127.0.0.1 parent 8118 0 no-query no-digest
+### cache_peer 127.0.0.1 parent 8118 0 no-query no-digest
 never_direct allow all
 EOF
 

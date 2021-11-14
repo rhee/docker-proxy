@@ -1,6 +1,6 @@
 :
 ( set -e -x
-  IMAGE=proxy:alpine3.4-20200928
+  IMAGE=proxy:site-latest
   docker run --name proxy -d --restart=unless-stopped \
     -p 3128:3128 \
     -p 8118:8118 \
