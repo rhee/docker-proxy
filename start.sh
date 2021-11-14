@@ -162,6 +162,6 @@ EOF
 #acl to_localhost dst 127.0.0.0/8 0.0.0.0/32
 #hosts_file /etc/hosts
 
-nohup /usr/sbin/squid -N -f /opt/proxy/etc/squid/squid.conf -a 3128 -u 3130 &
+nohup bash -c 'while :; do /usr/sbin/squid -N -f /opt/proxy/etc/squid/squid.conf -a 3128 -u 3130; sleep 30; done' &
 
 tail -F /--nothing--
