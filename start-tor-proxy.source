@@ -1,0 +1,11 @@
+:
+( set -e -x
+  IMAGE=proxy:latest
+  mkdir -p $HOME/.proxy/var $HOME/.proxy/etc
+  sudo docker run --name proxy -d --restart always \
+    -p 127.0.0.1:8118:8118 \
+    -p 127.0.0.1:9050:9050 \
+    -v $HOME/.proxy/var:/opt/proxy/var \
+    -v $HOME/.proxy/etc:/opt/proxy/etc \
+    "$IMAGE" \
+    "$@" )

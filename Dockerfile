@@ -1,26 +1,18 @@
-FROM alpine:3.4 as builder
-MAINTAINER shr386.docker@outlook.com
+FROM alpine:3.21 as builder
+LABEL maintainer="shr386.docker@outlook.com"
 
 RUN apk add --no-cache --virtual .build-deps \
- gcc g++ libc-dev make curl wget tar autoconf automake libtool texinfo \
+ gcc g++ libc-dev make curl wget tar autoconf automake libtool texinfo patch \
  libevent-dev pcre-dev libssh-dev zlib-dev openssl-dev && \
- apk add --no-cache libevent pcre libssh squid
+ apk add --no-cache libevent pcre libssh # squid
 
 RUN mkdir -p /opt/proxy/bin /opt/proxy/etc/privoxy /opt/proxy/sbin /opt/proxy/share/tor
 
-### ADD src/polipo-1.1.1.tar.gz /src/
-### #RUN ls -R /src
-### RUN cd /src/polipo-1.1.1 && \
-###  make PREFIX=/opt/proxy \
-###   LOCAL_ROOT=/opt/proxy/share/polipo/www \
-###   DISK_CACHE_ROOT=/opt/proxy/var/log/polipo/cache \
-###   all install
+ADD src/privoxy-4.0.0-stable-src.tar.gz /src/
 
-##ADD src/privoxy-3.0.26-stable-src.tar.gz /src/privoxy
-ADD https://www.privoxy.org/sf-download-mirror/Sources/3.0.28%20%28stable%29/privoxy-3.0.28-stable-src.tar.gz /src/
-RUN ls -l /src && tar -x -f /src/privoxy-3.0.28-stable-src.tar.gz -C /src && ls -l src
-COPY src/patch-privoxy-00-gnumakefile /src/privoxy-3.0.28-stable/
-RUN cd /src/privoxy-3.0.28-stable && \
+COPY src/patch-privoxy-00-gnumakefile /src/privoxy-4.0.0-stable/
+
+RUN cd /src/privoxy-4.0.0-stable && \
  patch -p0 < patch-privoxy-00-gnumakefile && \
  chmod +x mkinstalldirs && \
  autoheader && \
@@ -33,10 +25,9 @@ RUN cd /src/privoxy-3.0.28-stable && \
  make && \
  make install
 
-##ADD src/tor-0.2.8.9.tar.gz /src/tor
-ADD https://dist.torproject.org/tor-0.4.3.6.tar.gz /src/
-RUN ls -l /src && tar -x -f /src/tor-0.4.3.6.tar.gz -C /src && ls -l src
-RUN cd /src/tor-0.4.3.6 && \
+ADD src/tor-0.4.8.17.tar.gz /src/
+
+RUN cd /src/tor-0.4.8.17 && \
  autoreconf && \
  sh configure --prefix=/opt/proxy --disable-asciidoc && \
  make && \
@@ -49,12 +40,10 @@ RUN apk del .build-deps && \
 ##############################################################
 ##############################################################
 
+FROM alpine:3.21
+LABEL maintainer="shr386.docker@outlook.com"
 
-
-FROM alpine:3.4
-MAINTAINER shr386.docker@outlook.com
-
-RUN apk add --no-cache libevent pcre libssh squid bash
+RUN apk add --no-cache libevent pcre libssh bash # squid
 
 COPY --from=builder /opt/proxy /opt/proxy
 

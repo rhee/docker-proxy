@@ -1,5 +1,5 @@
 #
 build:	.FORCE
-	docker build -t proxy:alpine3.4-$(shell date +%Y%m%d) .
+	podman build --platform linux/amd64 -t proxy:alpine3.21-$(shell date +%Y%m%d) .
 .FORCE:
 .PHONY: .FORCE build
