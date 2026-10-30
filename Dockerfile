@@ -3,17 +3,17 @@ LABEL maintainer="shr386.docker@outlook.com"
 
 RUN apk add --no-cache --virtual .build-deps \
  gcc g++ libc-dev make curl wget tar autoconf automake libtool texinfo patch \
- libevent-dev pcre-dev libssh-dev zlib-dev openssl-dev && \
- apk add --no-cache libevent pcre libssh # squid
+ libevent-dev pcre-dev pcre2-dev libssh-dev zlib-dev openssl-dev && \
+ apk add --no-cache libevent pcre pcre2 libssh # squid
 
 RUN mkdir -p /opt/proxy/bin /opt/proxy/etc/privoxy /opt/proxy/sbin /opt/proxy/share/tor
 
-ADD src/privoxy-4.0.0-stable-src.tar.gz /src/
+ADD src/privoxy-4.2.0-stable-src.tar.gz /src/
 
-COPY src/patch-privoxy-00-gnumakefile /src/privoxy-4.0.0-stable/
+COPY src/patch-privoxy-00-gnumakefile /src/privoxy-4.2.0-stable/
 
-RUN cd /src/privoxy-4.0.0-stable && \
- patch -p0 < patch-privoxy-00-gnumakefile && \
+RUN cd /src/privoxy-4.2.0-stable && \
+ sed -i 's/$(CHMOD) $(DIR_MODE) $(MKDIR)/# $(CHMOD) $(DIR_MODE) $(MKDIR)/g' GNUmakefile.in && \
  chmod +x mkinstalldirs && \
  autoheader && \
  autoconf && \
@@ -25,12 +25,12 @@ RUN cd /src/privoxy-4.0.0-stable && \
  make && \
  make install
 
-ADD src/tor-0.4.8.17.tar.gz /src/
+ADD src/tor-0.4.9.15.tar.gz /src/
 
-RUN cd /src/tor-0.4.8.17 && \
+RUN cd /src/tor-0.4.9.15 && \
  autoreconf && \
  sh configure --prefix=/opt/proxy --disable-asciidoc && \
- make && \
+ make -j1 && \
  make install
 
 RUN apk del .build-deps && \
@@ -43,7 +43,7 @@ RUN apk del .build-deps && \
 FROM alpine:3.21
 LABEL maintainer="shr386.docker@outlook.com"
 
-RUN apk add --no-cache libevent pcre libssh bash # squid
+RUN apk add --no-cache libevent pcre pcre2 libssh bash # squid
 
 COPY --from=builder /opt/proxy /opt/proxy
 
