@@ -72,6 +72,8 @@ EXPOSE 9050
 # log, cache, etc
 VOLUME [ "/opt/proxy/var","/opt/proxy/etc" ]
 
+HEALTHCHECK --interval=30s --timeout=3s CMD nc -z localhost 8118 || exit 1
+
 # go to where keyfile.pem placed
 ENV PATH=/opt/proxy/bin:$PATH
 WORKDIR /opt/proxy/bin

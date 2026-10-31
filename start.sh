@@ -18,7 +18,7 @@ SocksListenAddress 0.0.0.0
 Log notice stderr
 RunAsDaemon 0
 ExcludeNodes {kr},{cn}
-HashedControlPassword 16:58559D2611103DF26020C6011A00E4A5FA50B16D2B550EB69DD6958744
+HashedControlPassword ${TOR_CONTROL_PASSWORD:-16:58559D2611103DF26020C6011A00E4A5FA50B16D2B550EB69DD6958744}
 EOF
 
 nohup /opt/proxy/bin/tor -f /opt/proxy/etc/tor/torrc &
