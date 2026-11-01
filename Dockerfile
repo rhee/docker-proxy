@@ -58,7 +58,7 @@ RUN mkdir -p /tmp/privoxy-config/
 COPY src/privoxy-config/* /tmp/privoxy-config/
 COPY adblock.action /tmp/privoxy-config/
 
-#COPY src/squid.conf /src/squid.conf
+ADD etc.tar.gz /opt/proxy
 
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
